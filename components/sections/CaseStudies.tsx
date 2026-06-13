@@ -38,16 +38,14 @@ export default function CaseStudies() {
                   <dt className="text-xs text-gray-500 uppercase tracking-wide">
                     採蜜量
                   </dt>
-                  <dd className="font-bold text-2xl text-amber-700">
-                    6.7 kg
-                  </dd>
+                  <dd className="font-bold text-2xl text-amber-700">40 kg</dd>
                 </div>
               </dl>
 
               <p className="text-gray-600 text-sm leading-relaxed">
                 慶應義塾志木高校の屋外スペースにセイヨウミツバチを導入。
                 2026年4月17日に蜂を導入し、約6週間で初回採蜜を実施。
-                生徒たちが自ら保護具をつけて採蜜を体験し、6.7kgという
+                生徒たちが自ら保護具をつけて採蜜を体験し、40kgという
                 初回としては豊かな収量を達成しました。
               </p>
 
