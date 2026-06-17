@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const trustItems = [
   { label: "保健所確認済み", detail: "志木・藤沢の保健所で製造許可を取得" },
   { label: "食品衛生責任者", detail: "飯塚・松丸が資格を取得" },
@@ -37,9 +39,15 @@ export default function About() {
             </p>
           </div>
 
-          {/* Image placeholder */}
-          <div className="bg-amber-100 rounded-2xl aspect-square flex items-center justify-center">
-            <span className="text-amber-400">[About 画像]</span>
+          {/* Activity image */}
+          <div className="relative rounded-2xl aspect-square overflow-hidden">
+            <Image
+              src="/images/activity_beehive_01.jpg"
+              alt="伝蜂の養蜂活動・巣箱"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </div>
 

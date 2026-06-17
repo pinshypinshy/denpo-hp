@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -18,8 +19,15 @@ export default function Header() {
   return (
     <header className="bg-amber-50 border-b border-amber-200 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-amber-800 tracking-wide">
-          伝蜂 <span className="text-sm font-normal text-amber-600">DENPO</span>
+        <Link href="/" aria-label="伝蜂 DENPO トップへ">
+          <Image
+            src="/logo/logo_horizontal_black.png"
+            alt="伝蜂 DENPO"
+            width={147}
+            height={80}
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}

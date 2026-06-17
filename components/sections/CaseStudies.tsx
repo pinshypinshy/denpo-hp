@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function CaseStudies() {
   return (
     <section id="case-studies" className="py-20 px-4 bg-amber-50">
@@ -11,9 +13,15 @@ export default function CaseStudies() {
 
         <div className="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden">
           <div className="grid md:grid-cols-2">
-            {/* Image placeholder */}
-            <div className="bg-amber-100 min-h-64 flex items-center justify-center">
-              <span className="text-amber-400 text-lg">[採蜜写真]</span>
+            {/* Case image */}
+            <div className="relative min-h-64">
+              <Image
+                src="/images/case_shiki_harvest_01.jpg"
+                alt="慶應義塾志木高等学校での採蜜の様子"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
 
             {/* Content */}

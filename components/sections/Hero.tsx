@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section className="bg-gradient-to-b from-amber-50 to-white py-20 px-4">
@@ -34,10 +36,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Placeholder image */}
+        {/* Hero image */}
         <div className="flex-1 w-full">
-          <div className="bg-amber-100 rounded-2xl w-full aspect-video flex items-center justify-center">
-            <span className="text-amber-400 text-lg">[ヒーロー画像]</span>
+          <div className="relative rounded-2xl w-full aspect-video overflow-hidden">
+            <Image
+              src="/images/hero_main.jpg"
+              alt="採蜜の様子とミツバチ"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </div>
