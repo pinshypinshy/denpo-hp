@@ -5,8 +5,8 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold mb-2">伝蜂 | DENPO</h3>
           <p className="text-sm text-amber-300">
-            学校養蜂を通じて未来の学びを届ける学生団体。
-            慶應義塾大学を拠点に活動中。
+            慶應生が始めた養蜂団体
+            学校養蜂を通じて次世代の環境教育を提供する
           </p>
         </div>
 
@@ -18,14 +18,14 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-sm text-amber-300 hover:text-white transition-colors"
           >
-            Instagram: @keio_beekeeper
+            Instagram: @denpo_bee
           </a>
         </div>
 
         <div>
           <h4 className="font-semibold mb-2">法的情報</h4>
           <p className="text-sm text-amber-300">
-            保健所確認済み（志木・藤沢）
+            保健所認可（志木・藤沢）
             <br />
             食品衛生責任者資格取得済み
           </p>
