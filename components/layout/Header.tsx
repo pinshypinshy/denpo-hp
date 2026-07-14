@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navItems = [
-  { label: "はちみつを買う", href: "#shop" },
-  { label: "学校Bee Project", href: "#project" },
+  { label: "購入", href: "#shop" },
+  { label: "学校養蜂", href: "#project" },
   { label: "実績", href: "#case-studies" },
   { label: "メンバー", href: "#members" },
   { label: "ニュース", href: "#news" },
