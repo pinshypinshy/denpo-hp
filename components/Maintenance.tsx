@@ -15,7 +15,7 @@ export default function Maintenance() {
         現在リニューアル中です
       </h1>
       <p className="mt-4 text-sm text-amber-800 sm:text-base">
-        今しばらくお待ちください
+        しばらくお待ちください
       </p>
     </main>
   );
