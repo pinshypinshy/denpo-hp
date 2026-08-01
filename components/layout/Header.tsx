@@ -17,8 +17,8 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-amber-50 border-b border-amber-200 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="absolute inset-x-0 top-0 z-50">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" aria-label="伝蜂 DENPO トップへ">
           <Image
             src="/logo/logo_horizontal_black.png"
@@ -26,17 +26,17 @@ export default function Header() {
             width={147}
             height={80}
             priority
-            className="h-10 w-auto"
+            className="h-10 w-auto brightness-0 invert"
           />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden gap-6 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-amber-900 hover:text-amber-600 transition-colors"
+              className="text-sm font-medium text-white transition-colors hover:text-orange-400"
             >
               {item.label}
             </a>
@@ -45,24 +45,24 @@ export default function Header() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-amber-800"
+          className="text-white md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニューを開く"
         >
-          <span className="block w-6 h-0.5 bg-amber-800 mb-1" />
-          <span className="block w-6 h-0.5 bg-amber-800 mb-1" />
-          <span className="block w-6 h-0.5 bg-amber-800" />
+          <span className="mb-1 block h-0.5 w-6 bg-white" />
+          <span className="mb-1 block h-0.5 w-6 bg-white" />
+          <span className="block h-0.5 w-6 bg-white" />
         </button>
       </div>
 
       {/* Mobile nav */}
       {menuOpen && (
-        <nav className="md:hidden bg-amber-50 border-t border-amber-200 px-4 pb-4">
+        <nav className="border-t border-white/20 bg-black/40 px-4 pb-4 backdrop-blur-sm md:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="block py-2 text-amber-900 hover:text-amber-600"
+              className="block py-2 text-sm text-white transition-colors hover:text-orange-400"
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
