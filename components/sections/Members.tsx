@@ -17,22 +17,21 @@ const members = [
 
 export default function Members() {
   return (
-    <section id="members" className="py-20 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-center text-sm font-semibold text-amber-600 uppercase tracking-widest mb-4">
+    <section id="members" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#D89B1D]">
           Members
         </p>
-        <h2 className="text-3xl font-bold text-center text-amber-900 mb-12">
+        <h2 className="mb-12 text-center text-3xl font-semibold text-black sm:text-4xl">
           メンバー
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
           {members.map((member) => (
             <div
               key={member.name}
-              className="bg-amber-50 rounded-2xl border border-amber-100 overflow-hidden"
+              className="overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-[0_12px_32px_rgba(0,0,0,0.08)]"
             >
-              {/* Photo */}
               <div className="relative aspect-square">
                 <Image
                   src={member.image}
@@ -44,15 +43,9 @@ export default function Members() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-amber-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-amber-600 font-medium mb-3">
-                  {member.role}
-                </p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {member.bio}
-                </p>
+                <h3 className="mb-1 text-xl font-semibold text-black">{member.name}</h3>
+                <p className="mb-3 text-sm font-medium text-[#D89B1D]">{member.role}</p>
+                <p className="text-sm leading-8 text-black/70">{member.bio}</p>
               </div>
             </div>
           ))}

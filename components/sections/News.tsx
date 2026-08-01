@@ -21,31 +21,31 @@ const tagColors: Record<string, string> = {
 
 export default function News() {
   return (
-    <section id="news" className="py-20 px-4 bg-amber-50">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-center text-sm font-semibold text-amber-600 uppercase tracking-widest mb-4">
+    <section id="news" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#D89B1D]">
           News
         </p>
-        <h2 className="text-3xl font-bold text-center text-amber-900 mb-12">
+        <h2 className="mb-12 text-center text-3xl font-semibold text-black sm:text-4xl">
           ニュース
         </h2>
 
-        <div className="space-y-4 max-w-2xl mx-auto">
+        <div className="mx-auto max-w-2xl space-y-4">
           {newsItems.map((item) => (
             <article
               key={item.title}
-              className="bg-white rounded-xl border border-amber-100 p-6 shadow-sm"
+              className="rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.05)]"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <time className="text-sm text-gray-500">{item.date}</time>
+              <div className="mb-3 flex items-center gap-3">
+                <time className="text-sm text-black/50">{item.date}</time>
                 <span
-                  className={`text-xs font-semibold px-2 py-0.5 rounded-full ${tagColors[item.tag] ?? "bg-gray-100 text-gray-700"}`}
+                  className={`rounded-full px-2 py-0.5 text-xs font-semibold ${tagColors[item.tag] ?? "bg-black text-white"}`}
                 >
                   {item.tag}
                 </span>
               </div>
-              <h3 className="font-bold text-amber-900 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.body}</p>
+              <h3 className="mb-2 font-semibold text-black">{item.title}</h3>
+              <p className="text-sm leading-8 text-black/70">{item.body}</p>
             </article>
           ))}
         </div>

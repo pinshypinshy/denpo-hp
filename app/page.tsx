@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
+import Button from "@/components/ui/Button";
 
 type SectionIntroProps = {
   eyebrow: string;
@@ -57,14 +57,14 @@ function SectionIntro({ eyebrow, title, children, inverse }: SectionIntroProps) 
       </p>
       <h2
         className={`text-3xl font-semibold leading-tight md:text-5xl ${
-          inverse ? "text-[#f8f3ea]" : "text-[#211a14]"
+          inverse ? "text-white" : "text-black"
         }`}
       >
         {title}
       </h2>
       <div
         className={`mt-6 text-base leading-8 md:text-lg ${
-          inverse ? "text-[#d7cbbb]" : "text-[#5e5348]"
+          inverse ? "text-white/80" : "text-black/70"
         }`}
       >
         {children}
@@ -76,48 +76,40 @@ function SectionIntro({ eyebrow, title, children, inverse }: SectionIntroProps) 
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[84svh] overflow-hidden bg-[#18120d] text-[#f8f3ea]">
+      <section className="relative min-h-[88svh] overflow-hidden bg-black text-white">
         <Image
           src="/images/hero_main.jpg"
           alt="採蜜に取り組む伝蜂の活動風景"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-55 saturate-[0.85]"
+          className="object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(24,18,13,0.92)_0%,rgba(24,18,13,0.7)_42%,rgba(24,18,13,0.18)_100%)]" />
-        <div className="relative mx-auto flex min-h-[84svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 lg:px-12">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.34em] text-[#d6ad62]">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.72)_45%,rgba(0,0,0,0.22)_100%)]" />
+        <div className="relative mx-auto flex min-h-[88svh] max-w-7xl flex-col justify-end px-5 pb-20 pt-28 sm:px-8 lg:px-12">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.34em] text-[#D89B1D]">
             DENPO / Student Beekeeping Collective
           </p>
           <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] md:text-7xl">
             伝蜂
-            <span className="mt-4 block text-2xl font-normal leading-relaxed text-[#e7dccb] md:text-3xl">
+            <span className="mt-4 block text-2xl font-normal leading-relaxed text-white/90 md:text-3xl">
               ミツバチの営みを、学びと贈りものに変えて届ける。
             </span>
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-8 text-[#d7cbbb] md:text-lg">
+          <p className="mt-8 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
             学校に養蜂を届けること。採れた蜂蜜に想いを添えて届けること。
             伝蜂は、自然の循環を手で触れられる体験として社会にひらく学生団体です。
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="#vision"
-              className="inline-flex items-center justify-center border border-[#d6ad62] bg-[#d6ad62] px-6 py-3 text-sm font-semibold text-[#211a14] transition-colors hover:bg-[#efc879]"
-            >
-              Visionを見る
-            </Link>
-            <Link
-              href="/projects"
-              className="inline-flex items-center justify-center border border-[#f8f3ea]/55 px-6 py-3 text-sm font-semibold text-[#f8f3ea] transition-colors hover:border-[#f8f3ea] hover:bg-[#f8f3ea]/10"
-            >
+            <Button href="#vision">Visionを見る</Button>
+            <Button href="/projects" variant="secondary">
               学校向け導入案内
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      <section id="vision" className="bg-[#f8f3ea] px-5 py-24 sm:px-8">
+      <section id="vision" className="bg-white px-5 py-24 sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <SectionIntro eyebrow="Vision" title="一瓶の蜂蜜から、学びの風景を変える。">
             <p>
@@ -150,7 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="bg-[#201913] px-5 py-24 text-[#f8f3ea] sm:px-8">
+      <section id="projects" className="bg-black px-5 py-24 text-white sm:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Projects" title="巣箱から始まるプロジェクト。" inverse>
             <p>
@@ -162,28 +154,25 @@ export default function Home() {
             {projects.map((project) => (
               <article
                 key={project.label}
-                className="border border-[#4a3b2e] bg-[#281f18] p-7"
+                className="rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] p-7 shadow-[0_12px_32px_rgba(0,0,0,0.16)]"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d6ad62]">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
                   {project.label}
                 </p>
-                <h3 className="mt-5 text-2xl font-semibold leading-tight text-[#f8f3ea]">
+                <h3 className="mt-5 text-2xl font-semibold leading-tight text-white">
                   {project.title}
                 </h3>
-                <p className="mt-4 leading-7 text-[#d7cbbb]">{project.body}</p>
-                <Link
-                  href={project.href}
-                  className="mt-8 inline-flex border-b border-[#d6ad62] pb-1 text-sm font-semibold text-[#d6ad62] transition-colors hover:text-[#f3d18b]"
-                >
+                <p className="mt-4 leading-7 text-white/80">{project.body}</p>
+                <Button href={project.href} className="mt-8" variant="secondary">
                   {project.cta}
-                </Link>
+                </Button>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="products" className="bg-[#eee3d1] px-5 py-24 sm:px-8">
+      <section id="products" className="bg-white px-5 py-24 sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="relative min-h-[440px] overflow-hidden">
             <Image
@@ -205,29 +194,26 @@ export default function Home() {
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {products.map((product) => (
-                <article key={product.name} className="border border-[#c9b99e] bg-[#f8f3ea] p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6333]">
+                <article key={product.name} className="rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.06)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#D89B1D]">
                     {product.detail}
                   </p>
-                  <h3 className="mt-4 text-xl font-semibold text-[#211a14]">
+                  <h3 className="mt-4 text-xl font-semibold text-black">
                     {product.name}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-[#5e5348]">{product.body}</p>
+                  <p className="mt-3 text-sm leading-7 text-black/70">{product.body}</p>
                 </article>
               ))}
             </div>
 
-            <Link
-              href="/products"
-              className="mt-9 inline-flex border border-[#211a14] px-6 py-3 text-sm font-semibold text-[#211a14] transition-colors hover:bg-[#211a14] hover:text-[#f8f3ea]"
-            >
+            <Button href="/products" className="mt-9" variant="secondary">
               商品紹介を見る
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      <section id="partner-schools" className="bg-[#f8f3ea] px-5 py-24 sm:px-8">
+      <section id="partner-schools" className="bg-white px-5 py-24 sm:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Partner Schools" title="学校とともに、実践を積み重ねる。">
             <p>
@@ -235,7 +221,7 @@ export default function Home() {
             </p>
           </SectionIntro>
 
-          <div className="mt-14 grid overflow-hidden border border-[#c9b99e] bg-[#fffaf2] lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="mt-14 grid overflow-hidden rounded-[24px] border border-black/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] shadow-[0_16px_40px_rgba(0,0,0,0.12)] lg:grid-cols-[1.05fr_0.95fr]">
             <div className="relative min-h-[320px]">
               <Image
                 src="/images/case_shiki_harvest_01.jpg"
@@ -245,22 +231,22 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="p-8 md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
+            <div className="p-8 text-white md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
                 Case 001
               </p>
-              <h3 className="mt-4 text-3xl font-semibold text-[#211a14]">
+              <h3 className="mt-4 text-3xl font-semibold text-white">
                 慶應義塾志木高等学校
               </h3>
-              <p className="mt-5 leading-8 text-[#5e5348]">
+              <p className="mt-5 leading-8 text-white/80">
                 2026年4月にセイヨウミツバチを導入。約6週間後の初回採蜜では、
                 生徒たちが保護具を身につけて採蜜を体験し、40kgの蜂蜜を収穫しました。
               </p>
               <dl className="mt-8 grid gap-4 sm:grid-cols-3">
                 {partnerStats.map((stat) => (
-                  <div key={stat.label} className="border-t border-[#c9b99e] pt-4">
-                    <dt className="text-2xl font-semibold text-[#211a14]">{stat.value}</dt>
-                    <dd className="mt-1 text-xs leading-5 text-[#6a5d50]">{stat.label}</dd>
+                  <div key={stat.label} className="border-t border-white/20 pt-4">
+                    <dt className="text-2xl font-semibold text-white">{stat.value}</dt>
+                    <dd className="mt-1 text-xs leading-5 text-white/70">{stat.label}</dd>
                   </div>
                 ))}
               </dl>
@@ -269,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="bg-[#263c32] px-5 py-24 text-[#f8f3ea] sm:px-8">
+      <section id="contact" className="bg-black px-5 py-24 text-white sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <SectionIntro eyebrow="Contact" title="学校導入、商品、取材のご相談へ。" inverse>
             <p>
@@ -278,26 +264,16 @@ export default function Home() {
             </p>
           </SectionIntro>
 
-          <div className="border border-[#8ca491] p-7">
-            <p className="text-sm leading-7 text-[#dbe5d6]">
+          <div className="rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] p-7 shadow-[0_12px_32px_rgba(0,0,0,0.16)]">
+            <p className="text-sm leading-7 text-white/80">
               学校の設置環境や授業との接続、採蜜後の扱いまで、初回相談で整理します。
               具体的な導入検討の前段階でも歓迎です。
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center border border-[#f8f3ea] px-6 py-3 text-sm font-semibold text-[#f8f3ea] transition-colors hover:bg-[#f8f3ea] hover:text-[#263c32]"
-              >
-                導入案内を見る
-              </Link>
-              <a
-                href="https://www.instagram.com/denpo_bee"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border border-[#8ca491] px-6 py-3 text-sm font-semibold text-[#f8f3ea] transition-colors hover:border-[#f8f3ea]"
-              >
+              <Button href="/projects">導入案内を見る</Button>
+              <Button href="https://www.instagram.com/denpo_bee" variant="secondary" external>
                 Instagramで連絡する
-              </a>
+              </Button>
             </div>
           </div>
         </div>

@@ -17,71 +17,58 @@ const products = [
   },
 ];
 
+import Button from "@/components/ui/Button";
+
 export default function Shop() {
   return (
-    <section id="shop" className="py-20 px-4 bg-amber-50">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-center text-sm font-semibold text-amber-600 uppercase tracking-widest mb-4">
+    <section id="shop" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#D89B1D]">
           Shop
         </p>
-        <h2 className="text-3xl font-bold text-center text-amber-900 mb-4">
+        <h2 className="mb-4 text-center text-3xl font-semibold text-black sm:text-4xl">
           はちみつを購入する
         </h2>
-        <p className="text-center text-gray-600 mb-12">
-          STORESにてお求めいただけます
-        </p>
+        <p className="mb-12 text-center text-black/70">STORESにてお求めいただけます</p>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="mb-12 grid gap-8 md:grid-cols-2">
           {products.map((product) => (
             <div
               key={product.name}
-              className="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden"
+              className="overflow-hidden rounded-[24px] border border-black/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] text-white shadow-[0_12px_32px_rgba(0,0,0,0.12)]"
             >
-              {/* Product image placeholder */}
-              <div className="bg-amber-100 aspect-square flex items-center justify-center relative">
+              <div className="relative aspect-square bg-white/10">
                 {product.badge && (
-                  <span className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="absolute right-4 top-4 rounded-full bg-[#D89B1D] px-3 py-1 text-xs font-semibold text-white">
                     {product.badge}
                   </span>
                 )}
-                <span className="text-amber-400 text-lg">[商品画像]</span>
+                <span className="absolute inset-0 flex items-center justify-center text-lg text-white/70">
+                  [商品画像]
+                </span>
               </div>
 
               <div className="p-6">
-                <h3 className="font-bold text-lg text-amber-900 mb-1">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-gray-500 mb-2">{product.weight}</p>
-                <p className="text-gray-600 text-sm mb-4">
-                  {product.description}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xl font-bold text-amber-700">
-                    {product.price}
-                  </span>
-                  <a
-                    href="https://stores.jp/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors"
-                  >
+                <h3 className="mb-1 text-lg font-semibold">{product.name}</h3>
+                <p className="mb-2 text-sm text-white/60">{product.weight}</p>
+                <p className="mb-4 text-sm leading-7 text-white/75">{product.description}</p>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-xl font-semibold text-[#D89B1D]">{product.price}</span>
+                  <Button href="https://stores.jp/" variant="secondary" external>
                     購入する
-                  </a>
+                  </Button>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Subscription placeholder */}
-        <div className="bg-white border-2 border-dashed border-amber-300 rounded-2xl p-8 text-center">
-          <p className="text-sm font-semibold text-amber-600 mb-2">
+        <div className="rounded-[24px] border border-black/10 bg-white p-8 text-center shadow-[0_10px_24px_rgba(0,0,0,0.05)]">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-[#D89B1D]">
             COMING SOON
           </p>
-          <h3 className="text-xl font-bold text-amber-900 mb-2">
-            定期便サービス
-          </h3>
-          <p className="text-gray-500 text-sm">
+          <h3 className="mb-2 text-xl font-semibold text-black">定期便サービス</h3>
+          <p className="text-sm leading-7 text-black/70">
             毎月届く「伝蜂便」—— 近日公開予定です。
           </p>
         </div>

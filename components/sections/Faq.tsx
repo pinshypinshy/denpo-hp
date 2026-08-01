@@ -45,17 +45,17 @@ const schoolFaqs: FaqItem[] = [
 function AccordionItem({ item }: { item: FaqItem }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-amber-200 rounded-xl overflow-hidden">
+    <div className="overflow-hidden rounded-[16px] border border-black/10 bg-white shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
       <button
-        className="w-full text-left flex items-center justify-between px-5 py-4 bg-white hover:bg-amber-50 transition-colors"
+        className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-black/5"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
-        <span className="font-medium text-amber-900">{item.q}</span>
-        <span className="text-amber-500 text-xl">{open ? "−" : "+"}</span>
+        <span className="font-medium text-black">{item.q}</span>
+        <span className="text-xl text-[#D89B1D]">{open ? "−" : "+"}</span>
       </button>
       {open && (
-        <div className="px-5 py-4 bg-amber-50 text-gray-700 text-sm leading-relaxed border-t border-amber-200">
+        <div className="border-t border-black/10 bg-black/5 px-5 py-4 text-sm leading-8 text-black/70">
           {item.a}
         </div>
       )}
@@ -65,17 +65,17 @@ function AccordionItem({ item }: { item: FaqItem }) {
 
 export default function Faq() {
   return (
-    <section className="py-20 px-4 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <p className="text-center text-sm font-semibold text-amber-600 uppercase tracking-widest mb-4">
+    <section className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl">
+        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#D89B1D]">
           FAQ
         </p>
-        <h2 className="text-3xl font-bold text-center text-amber-900 mb-12">
+        <h2 className="mb-12 text-center text-3xl font-semibold text-black sm:text-4xl">
           よくある質問
         </h2>
 
         <div className="mb-10">
-          <h3 className="font-bold text-lg text-amber-800 mb-4 flex items-center gap-2">
+          <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-black">
             <span>🍯</span> 消費者向け
           </h3>
           <div className="space-y-3">
@@ -86,7 +86,7 @@ export default function Faq() {
         </div>
 
         <div>
-          <h3 className="font-bold text-lg text-amber-800 mb-4 flex items-center gap-2">
+          <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-black">
             <span>🏫</span> 学校向け
           </h3>
           <div className="space-y-3">
