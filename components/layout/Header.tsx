@@ -19,8 +19,8 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // トップ以外は isSolid 側で常に true になるため、監視も更新も不要。
     if (pathname !== "/") {
-      setIsScrolled(true);
       return;
     }
 
