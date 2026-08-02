@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="mt-16 bg-black py-12 text-white">
+    <footer className="bg-black py-12 text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-3">
         <div>
           <h3 className="mb-2 text-xl font-semibold">伝蜂 | DENPO</h3>
@@ -13,7 +13,7 @@ export default function Footer() {
         <div>
           <h4 className="mb-2 font-semibold">SNS</h4>
           <a
-            href="https://www.instagram.com/keio_beekeeper"
+            href="https://www.instagram.com/denpo_bee"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-[#D89B1D] transition-colors hover:text-white"

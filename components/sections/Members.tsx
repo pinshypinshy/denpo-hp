@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionIntro from "@/components/ui/SectionIntro";
 
 const members = [
   {
@@ -17,37 +18,39 @@ const members = [
 
 export default function Members() {
   return (
-    <section id="members" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#D89B1D]">
-          Members
-        </p>
-        <h2 className="mb-12 text-center text-3xl font-semibold text-black sm:text-4xl">
-          メンバー
-        </h2>
+    <section id="members" className="bg-white px-5 py-24 sm:px-8">
+      <div className="mx-auto max-w-7xl">
+        <SectionIntro eyebrow="Team" title="現場に立つ、二人の共同代表。">
+          <p>
+            巣箱の管理から保健所との調整、学校への提案まで。
+            伝蜂の活動は、実際に手を動かす少人数の運営で成り立っています。
+          </p>
+        </SectionIntro>
 
-        <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
           {members.map((member) => (
-            <div
+            <article
               key={member.name}
-              className="overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-[0_12px_32px_rgba(0,0,0,0.08)]"
+              className="overflow-hidden rounded-[16px] border border-black/10 bg-white shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
             >
-              <div className="relative aspect-square">
+              <div className="relative aspect-[4/3]">
                 <Image
                   src={member.image}
                   alt={`${member.name}の写真`}
                   fill
-                  sizes="(max-width: 768px) 100vw, 384px"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
 
-              <div className="p-6">
-                <h3 className="mb-1 text-xl font-semibold text-black">{member.name}</h3>
-                <p className="mb-3 text-sm font-medium text-[#D89B1D]">{member.role}</p>
-                <p className="text-sm leading-8 text-black/70">{member.bio}</p>
+              <div className="p-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#D89B1D]">
+                  {member.role}
+                </p>
+                <h3 className="mt-4 text-2xl font-semibold text-black">{member.name}</h3>
+                <p className="mt-3 text-sm leading-7 text-black/70">{member.bio}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

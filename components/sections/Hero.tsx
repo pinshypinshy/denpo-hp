@@ -1,49 +1,37 @@
 import Image from "next/image";
+import Button from "@/components/ui/Button";
 
 export default function Hero() {
   return (
-    <section className="relative isolate min-h-[92vh] overflow-hidden bg-black">
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero_main.jpg"
-          alt="採蜜の様子とミツバチ"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/35 to-black/70" />
-      </div>
-
-      <div className="relative z-10 flex min-h-[92vh] items-center justify-center px-4 py-24 sm:px-6 lg:px-8">
-        <div className="max-w-3xl text-center text-white">
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-orange-400">
-            Student Beekeeping Group
-          </p>
-          <h1 className="text-5xl font-semibold tracking-[0.16em] text-white sm:text-6xl lg:text-7xl">
-            伝蜂
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/90 sm:text-lg">
-            ひとつの巣から、学びと贈りものをつなぐ。伝蜂は、学校と自然のつながりを、
-            しなやかに育てる学生養蜂団体です。
-          </p>
-
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="https://stores.jp/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-orange-500 px-8 py-3 text-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-orange-600"
-            >
-              はちみつを購入する
-            </a>
-            <a
-              href="#project"
-              className="rounded-full border border-orange-400 bg-orange-500/90 px-8 py-3 text-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-orange-600"
-            >
-              学校への導入を検討する
-            </a>
-          </div>
+    <section className="relative min-h-[88svh] overflow-hidden bg-black text-white">
+      <Image
+        src="/images/hero_main.jpg"
+        alt="採蜜に取り組む伝蜂の活動風景"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-60"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.72)_45%,rgba(0,0,0,0.22)_100%)]" />
+      <div className="relative mx-auto flex min-h-[88svh] max-w-7xl flex-col justify-end px-5 pb-20 pt-28 sm:px-8 lg:px-12">
+        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.34em] text-[#D89B1D]">
+          DENPO / Student Beekeeping Collective
+        </p>
+        <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] md:text-7xl">
+          伝蜂
+          <span className="mt-4 block text-2xl font-normal leading-relaxed text-white/90 md:text-3xl">
+            ミツバチの営みを、学びと贈りものに変えて届ける。
+          </span>
+        </h1>
+        <p className="mt-8 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
+          学校に養蜂を届けること。採れた蜂蜜に想いを添えて届けること。
+          伝蜂は、自然の循環を手で触れられる体験として社会にひらく学生団体です。
+        </p>
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <Button href="/products">商品を購入する</Button>
+          <Button href="/projects" variant="secondary">
+            学校向け導入案内
+          </Button>
         </div>
       </div>
     </section>

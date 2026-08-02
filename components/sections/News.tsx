@@ -1,4 +1,14 @@
-const newsItems = [
+import SectionIntro from "@/components/ui/SectionIntro";
+
+export type NewsItem = {
+  date: string;
+  title: string;
+  body: string;
+  tag: string;
+};
+
+/** Phase 3 で Notion API からの取得に差し替える予定のデータ。 */
+export const newsItems: NewsItem[] = [
   {
     date: "2026年5月30日",
     title: "初回採蜜 40kg 達成",
@@ -13,39 +23,45 @@ const newsItems = [
   },
 ];
 
-const tagColors: Record<string, string> = {
-  実績: "bg-green-100 text-green-800",
-  プロジェクト: "bg-blue-100 text-blue-800",
-  イベント: "bg-purple-100 text-purple-800",
+type NewsProps = {
+  /** 表示件数の上限。未指定なら全件表示。 */
+  limit?: number;
+  eyebrow?: string;
+  title?: string;
 };
 
-export default function News() {
-  return (
-    <section id="news" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#D89B1D]">
-          News
-        </p>
-        <h2 className="mb-12 text-center text-3xl font-semibold text-black sm:text-4xl">
-          ニュース
-        </h2>
+export default function News({
+  limit,
+  eyebrow = "News",
+  title = "活動の記録を、そのまま届ける。",
+}: NewsProps) {
+  const items = typeof limit === "number" ? newsItems.slice(0, limit) : newsItems;
 
-        <div className="mx-auto max-w-2xl space-y-4">
-          {newsItems.map((item) => (
+  return (
+    <section id="news" className="bg-white px-5 py-24 sm:px-8">
+      <div className="mx-auto max-w-7xl">
+        <SectionIntro eyebrow={eyebrow} title={title}>
+          <p>
+            巣箱の様子、採蜜の結果、学校での実施報告。現場で起きたことを随時更新しています。
+          </p>
+        </SectionIntro>
+
+        <div className="mt-14 grid gap-4 md:grid-cols-2">
+          {items.map((item) => (
             <article
               key={item.title}
-              className="rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.05)]"
+              className="rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
             >
-              <div className="mb-3 flex items-center gap-3">
-                <time className="text-sm text-black/50">{item.date}</time>
-                <span
-                  className={`rounded-full px-2 py-0.5 text-xs font-semibold ${tagColors[item.tag] ?? "bg-black text-white"}`}
-                >
+              <div className="flex items-center gap-3">
+                <time className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6333]">
+                  {item.date}
+                </time>
+                <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
                   {item.tag}
                 </span>
               </div>
-              <h3 className="mb-2 font-semibold text-black">{item.title}</h3>
-              <p className="text-sm leading-8 text-black/70">{item.body}</p>
+              <h3 className="mt-5 text-xl font-semibold text-black">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-black/70">{item.body}</p>
             </article>
           ))}
         </div>
