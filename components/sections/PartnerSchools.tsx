@@ -17,7 +17,7 @@ export default function PartnerSchools() {
           </p>
         </SectionIntro>
 
-        <div className="mt-14 grid overflow-hidden rounded-[24px] border border-black/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] shadow-[0_16px_40px_rgba(0,0,0,0.12)] lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mt-14 grid overflow-hidden rounded-[24px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] shadow-[0_10px_24px_rgba(0,0,0,0.04)] lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[320px]">
             <Image
               src="/images/case_shiki_harvest_01.jpg"

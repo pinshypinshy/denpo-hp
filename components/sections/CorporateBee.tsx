@@ -128,16 +128,16 @@ export default function CorporateBee() {
           </h3>
 
           <div className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] p-8 text-white shadow-[0_16px_40px_rgba(0,0,0,0.12)] md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
+            <div className="rounded-[24px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-8 text-[#111111] shadow-[0_10px_24px_rgba(0,0,0,0.04)] md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
                 We do
               </p>
-              <h4 className="mt-4 text-xl font-semibold text-white">伝蜂が行うこと</h4>
+              <h4 className="mt-4 text-xl font-semibold text-[#111111]">伝蜂が行うこと</h4>
               <ul className="mt-7 grid gap-4">
                 {ourWork.map((item) => (
                   <li
                     key={item}
-                    className="border-t border-white/20 pt-4 text-sm leading-7 text-white/80"
+                    className="border-t border-[#e8dcc8] pt-4 text-sm leading-7 text-[#4a463f]"
                   >
                     {item}
                   </li>

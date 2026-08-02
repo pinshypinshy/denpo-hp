@@ -39,7 +39,7 @@ export default function Shop() {
           {products.map((product) => (
             <article
               key={product.name}
-              className="overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] text-white shadow-[0_12px_32px_rgba(0,0,0,0.16)]"
+              className="overflow-hidden rounded-[16px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] text-[#111111] shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
             >
               <div className="relative aspect-[3/2] bg-white/10">
                 {product.image ? (
@@ -51,7 +51,7 @@ export default function Shop() {
                     className="object-cover"
                   />
                 ) : (
-                  <span className="absolute inset-0 flex items-center justify-center text-xs font-semibold uppercase tracking-[0.24em] text-white/50">
+                  <span className="absolute inset-0 flex items-center justify-center text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]/70">
                     Photo coming soon
                   </span>
                 )}
@@ -63,11 +63,11 @@ export default function Shop() {
               </div>
 
               <div className="p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#D89B1D]">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6333]">
                   {product.weight}
                 </p>
-                <h3 className="mt-4 text-xl font-semibold text-white">{product.name}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/75">{product.description}</p>
+                <h3 className="mt-4 text-xl font-semibold text-[#111111]">{product.name}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#4a463f]">{product.description}</p>
                 <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
                   <span className="text-xl font-semibold text-[#D89B1D]">{product.price}</span>
                   <Button href={STORES_URL} variant="secondary" external>

@@ -47,13 +47,13 @@ export default function Vision() {
           {trustItems.map((item) => (
             <div
               key={item.label}
-              className="rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] p-7 text-white shadow-[0_12px_32px_rgba(0,0,0,0.16)]"
+              className="rounded-[16px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-7 text-[#111111] shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
                 Trust
               </p>
-              <h3 className="mt-4 text-lg font-semibold text-white">{item.label}</h3>
-              <p className="mt-3 text-sm leading-7 text-white/75">{item.detail}</p>
+              <h3 className="mt-4 text-lg font-semibold text-[#111111]">{item.label}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#4a463f]">{item.detail}</p>
             </div>
           ))}
         </div>
