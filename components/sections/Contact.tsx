@@ -1,38 +1,124 @@
+"use client";
+
+import { useState } from "react";
 import Button from "@/components/ui/Button";
 import SectionIntro from "@/components/ui/SectionIntro";
 
+const inquiryTypes = [
+  "学校養蜂について",
+  "企業養蜂について",
+  "商品について",
+  "取材・メディア",
+  "その他",
+];
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    inquiryType: inquiryTypes[0],
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.info("Inquiry submitted", formData);
+  };
+
   return (
     <section id="contact" className="bg-white px-5 py-24 sm:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <SectionIntro eyebrow="Get in touch" title="学校・企業の導入、商品、取材のご相談へ。">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <SectionIntro eyebrow="Contact" title="学校・企業の導入、商品、取材のご相談へ。">
           <p>
             学校・企業への養蜂導入のご検討、商品に関するお問い合わせ、活動への協力相談など、
-            まずは伝蜂の活動アカウントからご連絡ください。
+            まずはフォームからご連絡ください。
           </p>
         </SectionIntro>
 
-        <div className="rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,#222222_0%,#000000_100%)] p-7 text-white shadow-[0_12px_32px_rgba(0,0,0,0.16)]">
-          <p className="text-sm leading-7 text-white/80">
-            設置環境や運用体制、採蜜後の扱いまで、初回相談で整理します。
-            具体的な導入検討の前段階でも歓迎です。
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button
-              href="https://www.instagram.com/denpo_bee"
-              variant="secondary"
-              external
-            >
-              Instagramで連絡する
-            </Button>
-            <Button href="/projects" variant="secondary">
-              学校向け導入案内
-            </Button>
-            <Button href="/corporate" variant="secondary">
-              企業向け導入案内
-            </Button>
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_12px_32px_rgba(0,0,0,0.08)] sm:p-8"
+        >
+          <div className="space-y-5">
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="inquiryType">
+                お問い合わせ種別
+              </label>
+              <select
+                id="inquiryType"
+                name="inquiryType"
+                value={formData.inquiryType}
+                onChange={handleChange}
+                className="w-full border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+              >
+                {inquiryTypes.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="name">
+                お名前
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+                placeholder="例：山田 太郎"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="email">
+                メールアドレス
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+                placeholder="example@email.com"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="message">
+                お問い合わせ内容
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full resize-none border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+                placeholder="ご相談内容をお聞かせください。"
+                required
+              />
+            </div>
           </div>
-        </div>
+
+          <div className="mt-8">
+            <Button type="submit">送信する</Button>
+          </div>
+        </form>
       </div>
     </section>
   );

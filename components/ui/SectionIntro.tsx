@@ -19,13 +19,13 @@ export default function SectionIntro({
     <div className={`max-w-3xl ${className}`.trim()}>
       <p
         className={`mb-4 text-xs font-semibold uppercase tracking-[0.28em] ${
-          inverse ? "text-[#d6ad62]" : "text-[#8a6333]"
+          inverse ? "text-[#D89B1D]" : "text-[#D89B1D]"
         }`}
       >
         {eyebrow}
       </p>
       <h2
-        className={`text-3xl font-semibold leading-tight md:text-5xl ${
+        className={`text-4xl font-semibold leading-tight sm:text-5xl ${
           inverse ? "text-white" : "text-black"
         }`}
       >
@@ -33,7 +33,7 @@ export default function SectionIntro({
       </h2>
       {children && (
         <div
-          className={`mt-6 text-base leading-8 md:text-lg ${
+          className={`mt-6 text-base leading-8 ${
             inverse ? "text-white/80" : "text-black/70"
           }`}
         >
