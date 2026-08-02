@@ -4,24 +4,26 @@
 
 ## プロジェクト概要
 
-学生養蜂団体「伝蜂（DENPO）」の公式ホームページ。
+学生養蜂団体「伝蜂（DENPO）」の公式ホームページ。**法人化を予定している。**
 はちみつのEC販売（STORESへ誘導）、学校向け養蜂導入事業（Bee Project）、企業向け養蜂代行事業（Corporate Bee Project）の3軸で構成する。
 
+- 公開URL：https://denpobee.com （DNSはCloudflareで管理）
 - ターゲット：一般消費者（はちみつ購入）/ 学校教員（導入検討）/ 企業の担当者（CSR・サステナビリティ）
 - **トップページはダイジェスト型**。Hero → Vision → Collection（4タイル）の3セクションのみで構成し、
   Collection の写真タイルから各下層ページへ分岐させる。詳細情報は下層ページに置く。
 
 ## 技術スタック
 
-| 技術                  | 用途                                |
-| --------------------- | ----------------------------------- |
-| Next.js（App Router） | フレームワーク                      |
-| TypeScript            | 型安全性                            |
-| Tailwind CSS          | スタイリング                        |
-| Cloudflare Pages      | ホスティング                        |
-| Cloudflare Functions  | 動的API（Phase 3で追加）            |
-| Formspree             | 問い合わせフォーム（Phase 2で追加） |
-| Notion API            | ニュース動的化（Phase 3で追加）     |
+| 技術                       | 用途                               |
+| -------------------------- | ---------------------------------- |
+| Next.js（App Router）      | フレームワーク                     |
+| TypeScript                 | 型安全性                           |
+| Tailwind CSS               | スタイリング                       |
+| Cloudflare Pages           | ホスティング                       |
+| Cloudflare Pages Functions | 動的API（Phase 2で追加）           |
+| Resend                     | メール送信（Phase 2で追加）        |
+| Cloudflare Turnstile       | フォームのbot対策（Phase 2で追加） |
+| Notion API                 | ニュース動的化（Phase 3で追加）    |
 
 ### 静的出力設定（Phase 1）
 
@@ -74,6 +76,9 @@ denpo-hp/
 ├── public/
 │ ├── logo/ # ロゴ各種（favicon, OGP等）
 │ └── images/ # 写真素材
+├── functions/ # Cloudflare Pages Functions。out/ とは別に、リポジトリ直下がPagesに拾われる
+│ └── api/
+│ └── contact.ts # 問い合わせ受付API（Phase 2で追加）
 ├── AGENTS.md
 ├── CLAUDE.md
 ├── next.config.ts
@@ -104,7 +109,8 @@ denpo-hp/
 ## 開発フェーズ
 
 - **Phase 1**：Next.js + 静的HTML/CSS で全セクション実装（完了）
-- **Phase 2**：Formspree でお問い合わせフォーム追加（`/contact` の Contact.tsx を差し替え）
+- **Phase 2**：Cloudflare Pages Functions + Resend でお問い合わせフォームを実装
+  （`Contact.tsx` を `fetch` 送信に変更、`functions/api/contact.ts` を追加、Turnstile で bot 対策）
 - **Phase 3**：Cloudflare Functions + Notion API でニュースセクション動的化（`News.tsx` の `newsItems` を差し替え）
 
 ## 設計上の重要事項
@@ -129,20 +135,29 @@ denpo-hp/
 6. **Instagramアカウント**
    `@denpo_bee`（https://www.instagram.com/denpo_bee）
 
+7. **フォーム送信は Cloudflare Pages Functions を経由する**
+   外部フォームSaaS（Formspree）とVPSでの自前実装を比較のうえ、いずれも不採用とした。
+   - Formspree：無料枠が月50件で引き合いを取りこぼす、自動返信が有料、履歴30日、個人情報が第三者に保管される
+   - VPS：メール送信は結局外部APIに依存するため自前化の利得が小さく、常駐サーバーの運用・引き継ぎコストだけが残る
+
+   シークレット（`RESEND_API_KEY`、`TURNSTILE_SECRET_KEY`、`CONTACT_TO_EMAIL`）は Cloudflare Pages 側に置き、
+   クライアントに露出させない。`NEXT_PUBLIC_` 系（Turnstile のサイトキー等）は静的出力に焼き込まれるため、
+   変更時は再ビルドが必要。
+
 ## デザイントークン
 
 新しいセクションを追加する際は、既存セクションと以下を揃える。
 
-| 用途                     | 値                                                            |
-| ------------------------ | ------------------------------------------------------------- |
-| アクセント色             | `#D89B1D`                                                     |
-| eyebrow（白背景）        | `text-[#8a6333]`                                              |
-| eyebrow（黒背景）        | `text-[#d6ad62]`                                              |
-| セクション余白           | `px-5 py-24 sm:px-8`                                          |
-| コンテナ幅               | `mx-auto max-w-7xl`                                           |
-| カード角丸               | `rounded-[16px]`（大きなコンテナのみ `rounded-[24px]`）       |
-| 黒カード背景             | `bg-[linear-gradient(180deg,#222222_0%,#000000_100%)]`        |
-| 白カード                 | `border border-black/10 bg-white shadow-[0_10px_24px_rgba(0,0,0,0.06)]` |
+| 用途              | 値                                                                      |
+| ----------------- | ----------------------------------------------------------------------- |
+| アクセント色      | `#D89B1D`                                                               |
+| eyebrow（白背景） | `text-[#8a6333]`                                                        |
+| eyebrow（黒背景） | `text-[#d6ad62]`                                                        |
+| セクション余白    | `px-5 py-24 sm:px-8`                                                    |
+| コンテナ幅        | `mx-auto max-w-7xl`                                                     |
+| カード角丸        | `rounded-[16px]`（大きなコンテナのみ `rounded-[24px]`）                 |
+| 黒カード背景      | `bg-[linear-gradient(180deg,#222222_0%,#000000_100%)]`                  |
+| 白カード          | `border border-black/10 bg-white shadow-[0_10px_24px_rgba(0,0,0,0.06)]` |
 
 - 見出しは `SectionIntro`（左寄せ）を使う。中央寄せの見出しは使わない。
 - **絵文字は使わない。**アイコンが必要な場合は連番（`01`〜）やテキストラベルで代替する。
@@ -162,4 +177,6 @@ denpo-hp/
 - **ギフト版の価格**：「価格未定」表示のまま
 - **商品画像**：`product_regular_jar.jpg` はモックアップからの切り出しで、ラベルが「GAKKO」表記。確定版ができ次第差し替える。ギフト版の写真は未用意（プレースホルダ表示）
 - **`hero_main.jpg`**：養蜂ではなく山と湖の風景写真。alt属性の記述と内容が一致していない
-- **プライバシーポリシー**：フッターに「近日公開」と記載したまま未作成
+- **プライバシーポリシー**：フッターに「近日公開」と記載したまま未作成。法人化に伴い、法人名義で作成する
+- **問い合わせの受信先アドレス**：(例) `info@denpobee.com` を Cloudflare Email Routing で転送するか、団体の共有Gmailに受けるか未確定
+- **Resend のドメイン検証**：`denpobee.com` の DKIM／SPF レコードが未設定。Phase 2 の実装前に必要
