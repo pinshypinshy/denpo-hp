@@ -5,10 +5,10 @@
 ## プロジェクト概要
 
 学生養蜂団体「伝蜂（DENPO）」の公式ホームページ。
-はちみつのEC販売（STORESへ誘導）と学校向け養蜂導入事業（Bee Project）の2軸で構成する。
+はちみつのEC販売（STORESへ誘導）、学校向け養蜂導入事業（Bee Project）、企業向け養蜂代行事業（Corporate Bee Project）の3軸で構成する。
 
-- ターゲット：一般消費者（はちみつ購入）/ 学校教員（導入検討）
-- **トップページはダイジェスト型**。Hero → Vision → Collection（3タイル）の3セクションのみで構成し、
+- ターゲット：一般消費者（はちみつ購入）/ 学校教員（導入検討）/ 企業の担当者（CSR・サステナビリティ）
+- **トップページはダイジェスト型**。Hero → Vision → Collection（4タイル）の3セクションのみで構成し、
   Collection の写真タイルから各下層ページへ分岐させる。詳細情報は下層ページに置く。
 
 ## 技術スタック
@@ -45,6 +45,7 @@ denpo-hp/
 │ ├── page.tsx # /         トップ
 │ ├── products/page.tsx # /products 商品紹介
 │ ├── projects/page.tsx # /projects 学校養蜂
+│ ├── corporate/page.tsx # /corporate 企業養蜂
 │ ├── members/page.tsx # /members  メンバー
 │ └── contact/page.tsx # /contact  お問い合わせ
 ├── components/
@@ -59,8 +60,10 @@ denpo-hp/
 │ └── sections/
 │ ├── Hero.tsx
 │ ├── Vision.tsx
-│ ├── Collection.tsx # トップの3タイル（写真＋オーバーレイ）
+│ ├── Collection.tsx # トップの4タイル（写真＋オーバーレイ）
 │ ├── BeeProject.tsx # 教育効果4項目・導入フロー5ステップ
+│ ├── CorporateBee.tsx # 企業メリット4項目・提供内容・導入フロー5ステップ
+│ ├── CorporateCases.tsx # 他社の企業養蜂事例（出典リンク付き）
 │ ├── PartnerSchools.tsx # 導入実績
 │ ├── News.tsx # 活動報告。Phase 3でNotion API動的化
 │ ├── Shop.tsx # 商品一覧・STORES誘導
@@ -79,20 +82,24 @@ denpo-hp/
 
 ## ページ構成
 
-ヘッダーナビは **商品 / 学校養蜂 / メンバー / お問い合わせ** の4項目。
+ヘッダーナビは **商品 / 学校養蜂 / 企業養蜂 / メンバー / お問い合わせ** の5項目。
 
-| ルート      | ページ         | セクション構成                                                          |
-| ----------- | -------------- | ----------------------------------------------------------------------- |
-| `/`         | トップ         | Hero → Vision → Collection                                              |
-| `/products` | 商品紹介       | PageHeader → Shop → GiftStory → Faq（消費者向け）                       |
-| `/projects` | 学校養蜂       | PageHeader → BeeProject → PartnerSchools → News → Faq（学校向け）       |
-| `/members`  | メンバー       | PageHeader → Members                                                    |
-| `/contact`  | お問い合わせ   | PageHeader → Contact                                                    |
+| ルート       | ページ       | セクション構成                                                    |
+| ------------ | ------------ | ----------------------------------------------------------------- |
+| `/`          | トップ       | Hero → Vision → Collection                                        |
+| `/products`  | 商品紹介     | PageHeader → Shop → GiftStory → Faq（消費者向け）                 |
+| `/projects`  | 学校養蜂     | PageHeader → BeeProject → PartnerSchools → News → Faq（学校向け） |
+| `/corporate` | 企業養蜂     | PageHeader → CorporateBee → CorporateCases → Faq（企業向け）      |
+| `/members`   | メンバー     | PageHeader → Members                                              |
+| `/contact`   | お問い合わせ | PageHeader → Contact                                              |
 
 - **Contact セクションは `/contact` にのみ置く。**各ページ末尾には配置しない。
 - **実績（PartnerSchools）と活動報告（News）は `/projects` に統合する。**単独ページは作らない。
-- FAQ は消費者向けを `/products`、学校向けを `/projects` に分けて配置する。
-  設問データは `Faq.tsx` から `consumerFaqs` / `schoolFaqs` として名前付きエクスポートする。
+- FAQ は消費者向けを `/products`、学校向けを `/projects`、企業向けを `/corporate` に分けて配置する。
+  設問データは `Faq.tsx` から `consumerFaqs` / `schoolFaqs` / `corporateFaqs` として名前付きエクスポートする。
+- **`CorporateCases.tsx` は他社の取り組みであり、伝蜂の実績ではない。**
+  自社実績との誤認を避けるため、リード文・各カードの出典リンク・末尾の注記を必ず維持する。
+  事例を追加・変更する際は、必ず公開情報で事実（開始年・場所・規模）を確認してから記載する。
 
 ## 開発フェーズ
 
