@@ -1,7 +1,16 @@
 import Image from "next/image";
 import SectionIntro from "@/components/ui/SectionIntro";
 
-const members = [
+type Member = {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  /** object-cover の表示基準。未指定なら中央。 */
+  imagePosition?: string;
+};
+
+const members: Member[] = [
   {
     name: "飯塚",
     role: "共同代表 / 食品衛生責任者",
@@ -13,6 +22,8 @@ const members = [
     role: "共同代表 / 食品衛生責任者",
     bio: "慶應義塾大学在籍。学校向けBee Projectの企画・運営をリード。ミツバチと子どもたちをつなぐプログラム設計を担当。",
     image: "/images/member_matsumaru.jpg",
+    // 縦長写真のため、中央基準だと帽子の上端が切れる。上寄りに表示する。
+    imagePosition: "object-[50%_25%]",
   },
 ];
 
@@ -39,7 +50,7 @@ export default function Members() {
                   alt={`${member.name}の写真`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className={`object-cover ${member.imagePosition ?? ""}`}
                 />
               </div>
 
