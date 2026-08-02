@@ -95,20 +95,40 @@ export default function Header() {
         </button>
       </div>
 
-      {menuOpen && (
-        <nav className="border-t border-black/10 bg-white px-5 pb-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] sm:px-8 md:hidden">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block py-2 text-sm text-black transition-colors hover:text-[#D89B1D]"
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      )}
+      {/*
+        Mobile nav
+        常時マウントしたまま grid-rows を 0fr → 1fr に変化させて高さをアニメーションする。
+        閉じている間は invisible でフォーカス到達を防ぐ（visibility は離散的に遷移するため、
+        閉じるアニメーションの最中は表示が保たれる）。
+      */}
+      <div
+        className={`grid overflow-hidden transition-all duration-300 ease-out md:hidden ${
+          menuOpen ? "grid-rows-[1fr] opacity-100" : "invisible grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        {/*
+          grid-rows-[0fr] で潰れるのは中身だけで、padding と border は残ってしまう。
+          余白と境界線はさらに内側の nav に置き、閉じたときに高さ0にする。
+        */}
+        <div className="overflow-hidden">
+          <nav className="border-t border-black/10 bg-white px-5 pb-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] sm:px-8">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block py-2 text-sm text-black transition duration-300 ease-out hover:text-[#D89B1D] ${
+                  menuOpen ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
+                }`}
+                // 開くときだけ順番にずらす。閉じるときは一斉に消す。
+                style={{ transitionDelay: menuOpen ? `${100 + index * 45}ms` : "0ms" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
     </header>
   );
 }

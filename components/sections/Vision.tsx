@@ -1,3 +1,4 @@
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 const philosophy = [
@@ -16,7 +17,7 @@ export default function Vision() {
   return (
     <section id="vision" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+        <Reveal stagger className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <SectionIntro eyebrow="Vision" title="一瓶の蜂蜜から、学びの風景を変える。">
             <p>
               伝蜂という名前には、「電報」のように大切な想いを届けたいという意味があります。
@@ -41,9 +42,9 @@ export default function Vision() {
               ))}
             </dl>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        <Reveal stagger className="mt-16 grid gap-4 md:grid-cols-3">
           {trustItems.map((item) => (
             <div
               key={item.label}
@@ -56,7 +57,7 @@ export default function Vision() {
               <p className="mt-3 text-sm leading-7 text-[#4a463f]">{item.detail}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

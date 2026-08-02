@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 const partnerStats = [
@@ -11,13 +12,15 @@ export default function PartnerSchools() {
   return (
     <section id="partner-schools" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro eyebrow="Partner Schools" title="学校とともに、実践を積み重ねる。">
-          <p>
-            慶應義塾志木高等学校での導入を起点に、学校の現場で無理なく続く養蜂プログラムを検証しています。
-          </p>
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro eyebrow="Partner Schools" title="学校とともに、実践を積み重ねる。">
+            <p>
+              慶應義塾志木高等学校での導入を起点に、学校の現場で無理なく続く養蜂プログラムを検証しています。
+            </p>
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid overflow-hidden rounded-[24px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] shadow-[0_10px_24px_rgba(0,0,0,0.04)] lg:grid-cols-[1.05fr_0.95fr]">
+        <Reveal className="mt-14 grid overflow-hidden rounded-[24px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] shadow-[0_10px_24px_rgba(0,0,0,0.04)] lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[320px]">
             <Image
               src="/images/case_shiki_harvest_01.jpg"
@@ -57,7 +60,7 @@ export default function PartnerSchools() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

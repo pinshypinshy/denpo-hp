@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 const inquiryTypes = [
@@ -34,7 +35,10 @@ export default function Contact() {
 
   return (
     <section id="contact" className="bg-white px-5 py-24 sm:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <Reveal
+        stagger
+        className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+      >
         <SectionIntro eyebrow="Contact" title="学校・企業の導入、商品、取材のご相談へ。">
           <p>
             学校・企業への養蜂導入のご検討、商品に関するお問い合わせ、活動への協力相談など、
@@ -119,7 +123,7 @@ export default function Contact() {
             <Button type="submit">送信する</Button>
           </div>
         </form>
-      </div>
+      </Reveal>
     </section>
   );
 }

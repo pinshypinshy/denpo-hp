@@ -1,10 +1,14 @@
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 export default function GiftStory() {
   return (
     <section id="gift" className="bg-black px-5 py-24 text-white sm:px-8">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <Reveal
+        stagger
+        className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+      >
         <SectionIntro eyebrow="Gift" title="「電報」のように、想いを届ける。" inverse>
           <p>
             伝蜂（DENPO）という名前は「電報」との語呂合わせです。
@@ -26,7 +30,7 @@ export default function GiftStory() {
             className="object-cover"
           />
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

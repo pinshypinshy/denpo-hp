@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 /** TODO: STORES の実URLが決まり次第差し替える（現在は仮リンク）。 */
@@ -29,13 +30,15 @@ export default function Shop() {
   return (
     <section id="shop" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro eyebrow="Shop" title="はちみつを購入する。">
-          <p>
-            販売はSTORESにて承ります。数量に限りがあるため、在庫状況はSTORESのページをご確認ください。
-          </p>
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro eyebrow="Shop" title="はちみつを購入する。">
+            <p>
+              販売はSTORESにて承ります。数量に限りがあるため、在庫状況はSTORESのページをご確認ください。
+            </p>
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <Reveal stagger className="mt-14 grid gap-6 md:grid-cols-2">
           {products.map((product) => (
             <article
               key={product.name}
@@ -77,9 +80,9 @@ export default function Shop() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
 
-        <div className="mt-6 rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]">
+        <Reveal className="mt-6 rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
             Coming Soon
           </p>
@@ -87,7 +90,7 @@ export default function Shop() {
           <p className="mt-3 text-sm leading-7 text-black/70">
             毎月届く「伝蜂便」を準備中です。採蜜の時期に合わせて、その季節の蜂蜜をお届けします。
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

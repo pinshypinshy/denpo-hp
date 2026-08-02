@@ -1,3 +1,4 @@
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 export type NewsItem = {
@@ -40,13 +41,15 @@ export default function News({
   return (
     <section id="news" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro eyebrow={eyebrow} title={title}>
-          <p>
-            巣箱の様子、採蜜の結果、学校での実施報告。現場で起きたことを随時更新しています。
-          </p>
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro eyebrow={eyebrow} title={title}>
+            <p>
+              巣箱の様子、採蜜の結果、学校での実施報告。現場で起きたことを随時更新しています。
+            </p>
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-2">
+        <Reveal stagger className="mt-14 grid gap-4 md:grid-cols-2">
           {items.map((item) => (
             <article
               key={item.title}
@@ -64,7 +67,7 @@ export default function News({
               <p className="mt-3 text-sm leading-7 text-black/70">{item.body}</p>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

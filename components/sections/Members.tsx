@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 type Member = {
@@ -31,14 +32,16 @@ export default function Members() {
   return (
     <section id="members" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro eyebrow="Team" title="現場に立つ、二人の共同代表。">
-          <p>
-            巣箱の管理から保健所との調整、学校への提案まで。
-            伝蜂の活動は、実際に手を動かす少人数の運営で成り立っています。
-          </p>
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro eyebrow="Team" title="現場に立つ、二人の共同代表。">
+            <p>
+              巣箱の管理から保健所との調整、学校への提案まで。
+              伝蜂の活動は、実際に手を動かす少人数の運営で成り立っています。
+            </p>
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <Reveal stagger className="mt-14 grid gap-6 md:grid-cols-2">
           {members.map((member) => (
             <article
               key={member.name}
@@ -63,7 +66,7 @@ export default function Members() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

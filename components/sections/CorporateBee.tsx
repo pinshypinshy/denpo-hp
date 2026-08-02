@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 const benefits = [
@@ -93,18 +94,20 @@ export default function CorporateBee() {
   return (
     <section id="corporate-bee" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro
-          eyebrow="Corporate Bee Project"
-          title="少しのスペースを、有効活用してみませんか。"
-        >
-          <p>
-            貴社の屋上や敷地の空きスペースに巣箱を設置し、設置から日常管理、採蜜、瓶詰めまでを
-            伝蜂がすべて代行します。社員の方に日々の作業は発生しません。
-            採蜜の日だけ、ミツバチのいる現場に立ち会っていただきます。
-          </p>
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro
+            eyebrow="Corporate Bee Project"
+            title="少しのスペースを、有効活用してみませんか。"
+          >
+            <p>
+              貴社の屋上や敷地の空きスペースに巣箱を設置し、設置から日常管理、採蜜、瓶詰めまでを
+              伝蜂がすべて代行します。社員の方に日々の作業は発生しません。
+              採蜜の日だけ、ミツバチのいる現場に立ち会っていただきます。
+            </p>
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, index) => (
             <article
               key={benefit.title}
@@ -117,17 +120,19 @@ export default function CorporateBee() {
               <p className="mt-3 text-sm leading-7 text-black/70">{benefit.detail}</p>
             </article>
           ))}
-        </div>
+        </Reveal>
 
         <div className="mt-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-            Service
-          </p>
-          <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">
-            養蜂は、すべて伝蜂が行います
-          </h3>
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
+              Service
+            </p>
+            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">
+              養蜂は、すべて伝蜂が行います
+            </h3>
+          </Reveal>
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+          <Reveal stagger className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-[24px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-8 text-[#111111] shadow-[0_10px_24px_rgba(0,0,0,0.04)] md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
                 We do
@@ -163,18 +168,20 @@ export default function CorporateBee() {
                 ))}
               </ul>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         <div className="mt-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-            For
-          </p>
-          <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">
-            こんな企業に向いています
-          </h3>
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
+              For
+            </p>
+            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">
+              こんな企業に向いています
+            </h3>
+          </Reveal>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <Reveal stagger className="mt-10 grid gap-4 sm:grid-cols-2">
             {targets.map((target) => (
               <article
                 key={target.field}
@@ -184,16 +191,18 @@ export default function CorporateBee() {
                 <p className="mt-3 text-sm leading-7 text-black/70">{target.detail}</p>
               </article>
             ))}
-          </div>
+          </Reveal>
         </div>
 
         <div className="mt-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-            Process
-          </p>
-          <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">導入の流れ</h3>
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
+              Process
+            </p>
+            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">導入の流れ</h3>
+          </Reveal>
 
-          <div className="mt-10 grid gap-3">
+          <Reveal stagger className="mt-10 grid gap-3">
             {steps.map((step) => (
               <div
                 key={step.step}
@@ -208,14 +217,14 @@ export default function CorporateBee() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
 
-          <div className="mt-10">
+          <Reveal className="mt-10">
             <Button href="/contact">導入を相談する</Button>
             <p className="mt-4 text-sm text-black/50">
               ※費用は設置規模・拠点数・イベント実施回数によって変わります。お問い合わせ後にお見積りをご案内いたします。
             </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

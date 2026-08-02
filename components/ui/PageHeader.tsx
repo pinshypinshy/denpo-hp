@@ -15,14 +15,14 @@ export default function PageHeader({ eyebrow, title, children }: PageHeaderProps
   return (
     <section className="bg-black px-5 pb-20 pt-36 text-white sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#d6ad62]">
+        <p className="anim-fade-up mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#d6ad62]">
           {eyebrow}
         </p>
-        <h1 className="max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">
+        <h1 className="anim-fade-up anim-delay-1 max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">
           {title}
         </h1>
         {children && (
-          <div className="mt-6 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
+          <div className="anim-fade-up anim-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
             {children}
           </div>
         )}

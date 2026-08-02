@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/ui/Reveal";
 
 const entries = [
   {
@@ -40,7 +41,7 @@ export default function Collection() {
   return (
     <section id="collection" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {entries.map((entry) => (
             <Link
               key={entry.href}
@@ -76,7 +77,7 @@ export default function Collection() {
               </div>
             </Link>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

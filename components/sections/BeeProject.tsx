@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 const educationEffects = [
@@ -48,15 +49,17 @@ export default function BeeProject() {
   return (
     <section id="bee-project" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro eyebrow="Bee Project" title="学校に、ミツバチのいる学びを。">
-          <p>
-            学校の屋上・中庭・農場に巣箱を設置し、子どもたちとミツバチの共生を通じた
-            体験型教育プログラムを提供します。設置して終わりではなく、
-            日常管理から採蜜までを伴走します。
-          </p>
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro eyebrow="Bee Project" title="学校に、ミツバチのいる学びを。">
+            <p>
+              学校の屋上・中庭・農場に巣箱を設置し、子どもたちとミツバチの共生を通じた
+              体験型教育プログラムを提供します。設置して終わりではなく、
+              日常管理から採蜜までを伴走します。
+            </p>
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {educationEffects.map((effect, index) => (
             <article
               key={effect.field}
@@ -69,15 +72,17 @@ export default function BeeProject() {
               <p className="mt-3 text-sm leading-7 text-black/70">{effect.detail}</p>
             </article>
           ))}
-        </div>
+        </Reveal>
 
         <div className="mt-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-            Process
-          </p>
-          <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">導入の流れ</h3>
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
+              Process
+            </p>
+            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">導入の流れ</h3>
+          </Reveal>
 
-          <div className="mt-10 grid gap-3">
+          <Reveal stagger className="mt-10 grid gap-3">
             {steps.map((step) => (
               <div
                 key={step.step}
@@ -92,14 +97,14 @@ export default function BeeProject() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
 
-          <div className="mt-10">
+          <Reveal className="mt-10">
             <Button href="/contact">導入を相談する</Button>
             <p className="mt-4 text-sm text-black/50">
               ※料金・詳細はお問い合わせ後にご案内いたします。
             </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

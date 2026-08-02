@@ -28,3 +28,112 @@ body {
   background: #d89b1d;
   color: #ffffff;
 }
+
+/* ---------------------------------------------------------------------------
+ * アニメーション
+ *
+ * - .anim-* : ページ表示直後に走る初回アニメーション（Hero / PageHeader）。
+ *             CSSアニメーションのみで完結するため、JSもクライアント境界も不要。
+ * - .reveal / .reveal-stagger : スクロール連動の表示アニメーション。
+ *             components/ui/Reveal.tsx が可視化時に .is-visible を付与する。
+ * ------------------------------------------------------------------------- */
+
+@keyframes denpo-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes denpo-zoom-out {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.anim-fade-up {
+  animation: denpo-fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-zoom-out {
+  animation: denpo-zoom-out 1600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-delay-1 {
+  animation-delay: 90ms;
+}
+
+.anim-delay-2 {
+  animation-delay: 180ms;
+}
+
+.reveal,
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible,
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* カードが並ぶ箇所は 70ms ずつ遅らせて順に出す。 */
+.reveal-stagger > *:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.reveal-stagger > *:nth-child(3) {
+  transition-delay: 140ms;
+}
+
+.reveal-stagger > *:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+.reveal-stagger > *:nth-child(5) {
+  transition-delay: 280ms;
+}
+
+/* 6件目以降は待ち時間が長くなりすぎるため頭打ちにする。 */
+.reveal-stagger > *:nth-child(n + 6) {
+  transition-delay: 350ms;
+}
+
+/* JS無効環境では .is-visible が付かないため、最初から表示する。 */
+@media (scripting: none) {
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .anim-fade-up,
+  .anim-zoom-out {
+    animation: none;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

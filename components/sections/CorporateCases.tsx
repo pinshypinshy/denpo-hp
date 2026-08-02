@@ -1,3 +1,4 @@
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 type CorporateCase = {
@@ -52,18 +53,20 @@ export default function CorporateCases() {
   return (
     <section id="corporate-cases" className="bg-black px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro
-          inverse
-          eyebrow="Case Studies"
-          title="企業が養蜂をする、という選択。"
-        >
-          <p>
-            都市の屋上で企業がミツバチを飼う取り組みは、日本でも2006年から積み重ねられてきました。
-            以下は伝蜂が関わった事例ではなく、国内で公開されている他社の取り組みです。
-          </p>
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro
+            inverse
+            eyebrow="Case Studies"
+            title="企業が養蜂をする、という選択。"
+          >
+            <p>
+              都市の屋上で企業がミツバチを飼う取り組みは、日本でも2006年から積み重ねられてきました。
+              以下は伝蜂が関わった事例ではなく、国内で公開されている他社の取り組みです。
+            </p>
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-3">
+        <Reveal stagger className="mt-14 grid gap-4 md:grid-cols-3">
           {cases.map((item) => (
             <article
               key={item.company}
@@ -103,7 +106,7 @@ export default function CorporateCases() {
               </a>
             </article>
           ))}
-        </div>
+        </Reveal>
 
         <p className="mt-8 text-sm leading-7 text-white/50">
           ※記載の内容は各社が公開している情報にもとづきます。伝蜂による実施事例ではありません。

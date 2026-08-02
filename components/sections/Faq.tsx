@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
 
 export type FaqItem = { q: string; a: string };
@@ -109,15 +110,17 @@ export default function Faq({
   return (
     <section id="faq" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro eyebrow={eyebrow} title={title}>
-          {lead && <p>{lead}</p>}
-        </SectionIntro>
+        <Reveal>
+          <SectionIntro eyebrow={eyebrow} title={title}>
+            {lead && <p>{lead}</p>}
+          </SectionIntro>
+        </Reveal>
 
-        <div className="mt-14 grid max-w-4xl gap-3">
+        <Reveal stagger className="mt-14 grid max-w-4xl gap-3">
           {items.map((item) => (
             <AccordionItem key={item.q} item={item} />
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
