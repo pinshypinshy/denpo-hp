@@ -27,6 +27,7 @@
 # editors
 .vscode/
 .idea/
+.claude/launch.json
 
 # planning docs
 IMPLEMENTATION_PLAN.md
