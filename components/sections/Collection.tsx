@@ -19,12 +19,20 @@ const entries = [
     alt: "慶應義塾志木高等学校での採蜜体験",
   },
   {
+    eyebrow: "Corporate Bee Project",
+    title: "企業養蜂について知る",
+    body: "屋上の遊休スペースに巣箱を。養蜂はすべて伝蜂が代行します。",
+    href: "/corporate",
+    image: "/images/activity_beehive_01.jpg",
+    alt: "ミツバチと巣板で満たされた巣箱の巣枠",
+  },
+  {
     eyebrow: "Contact",
     title: "お問い合わせ",
     body: "導入のご相談、商品や取材のお問い合わせはこちらから。",
     href: "/contact",
-    image: "/images/activity_beehive_01.jpg",
-    alt: "伝蜂の巣箱と養蜂の様子",
+    image: "/images/activity_harvest_01.jpg",
+    alt: "採蜜した蜂蜜を瓶に詰める伝蜂のメンバー",
   },
 ];
 
@@ -32,7 +40,7 @@ export default function Collection() {
   return (
     <section id="collection" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {entries.map((entry) => (
             <Link
               key={entry.href}
@@ -43,7 +51,7 @@ export default function Collection() {
                 src={entry.image}
                 alt={entry.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.10)_0%,rgba(0,0,0,0.34)_34%,rgba(0,0,0,0.78)_62%,rgba(0,0,0,0.95)_100%)]" />

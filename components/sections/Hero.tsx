@@ -27,10 +27,13 @@ export default function Hero() {
           学校に養蜂を届けること。採れた蜂蜜に想いを添えて届けること。
           伝蜂は、自然の循環を手で触れられる体験として社会にひらく学生団体です。
         </p>
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Button href="/products">商品を購入する</Button>
           <Button href="/projects" variant="secondary">
             学校向け導入案内
+          </Button>
+          <Button href="/corporate" variant="secondary">
+            企業向け導入案内
           </Button>
         </div>
       </div>

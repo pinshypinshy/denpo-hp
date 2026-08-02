@@ -7,6 +7,7 @@ import { useState } from "react";
 const navItems = [
   { label: "商品", href: "/products" },
   { label: "学校養蜂", href: "/projects" },
+  { label: "企業養蜂", href: "/corporate" },
   { label: "メンバー", href: "/members" },
   { label: "お問い合わせ", href: "/contact" },
 ];
