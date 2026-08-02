@@ -30,14 +30,14 @@ const entries = [
 
 export default function Collection() {
   return (
-    <section id="collection" className="bg-black px-5 py-24 sm:px-8">
+    <section id="collection" className="bg-white px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-4 md:grid-cols-3">
           {entries.map((entry) => (
             <Link
               key={entry.href}
               href={entry.href}
-              className="group relative block aspect-[3/4] overflow-hidden rounded-[16px] border border-white/10"
+              className="group relative block aspect-[3/4] overflow-hidden rounded-[16px] border border-black/10 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
             >
               <Image
                 src={entry.image}
