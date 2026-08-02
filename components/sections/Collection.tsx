@@ -39,14 +39,14 @@ const entries = [
 
 export default function Collection() {
   return (
-    <section id="collection" className="bg-white px-5 py-24 sm:px-8">
+    <section id="collection" className="bg-[#F3EBDD] px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {entries.map((entry) => (
             <Link
               key={entry.href}
               href={entry.href}
-              className="group relative block aspect-[3/4] overflow-hidden rounded-[16px] border border-black/10 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
+              className="group relative block aspect-[3/4] overflow-hidden rounded-[16px] border border-[#E6DDCF] shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
             >
               <Image
                 src={entry.image}

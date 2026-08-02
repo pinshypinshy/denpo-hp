@@ -13,7 +13,7 @@ type PageHeaderProps = {
  */
 export default function PageHeader({ eyebrow, title, children }: PageHeaderProps) {
   return (
-    <section className="bg-black px-5 pb-20 pt-36 text-white sm:px-8">
+    <section className="bg-[linear-gradient(180deg,#3B352A_0%,#222222_100%)] px-5 pb-20 pt-36 text-white sm:px-8">
       <div className="mx-auto max-w-7xl">
         <p className="anim-fade-up mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#d6ad62]">
           {eyebrow}

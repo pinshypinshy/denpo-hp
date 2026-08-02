@@ -10,7 +10,7 @@ const partnerStats = [
 
 export default function PartnerSchools() {
   return (
-    <section id="partner-schools" className="bg-white px-5 py-24 sm:px-8">
+    <section id="partner-schools" className="bg-[#FAF8F3] px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionIntro eyebrow="Partner Schools" title="学校とともに、実践を積み重ねる。">
@@ -20,7 +20,7 @@ export default function PartnerSchools() {
           </SectionIntro>
         </Reveal>
 
-        <Reveal className="mt-14 grid overflow-hidden rounded-[24px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] shadow-[0_10px_24px_rgba(0,0,0,0.04)] lg:grid-cols-[1.05fr_0.95fr]">
+        <Reveal className="mt-14 grid overflow-hidden rounded-[24px] border border-[#E6DDCF] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] shadow-[0_12px_30px_rgba(59,53,42,0.08)] lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[320px]">
             <Image
               src="/images/case_shiki_harvest_01.jpg"

@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Maintenance from "@/components/Maintenance";
+
+const notoSans = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
+  display: "swap",
+});
 
 const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
 
@@ -17,10 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // globals.css で scroll-behavior: smooth を指定している。
-    // Next.js 16 はこの属性がない限り遷移時に上書きしないため、
-    // 付けないとページ遷移のスクロールリセットまで滑らかに動いてしまう。
-    <html lang="ja" data-scroll-behavior="smooth">
+    <html lang="ja" className={notoSans.variable} data-scroll-behavior="smooth">
       {isMaintenance ? (
         <body>
           <Maintenance />

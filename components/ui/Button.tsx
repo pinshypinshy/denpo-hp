@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { brandColors } from "@/components/ui/designTokens";
 
 type ButtonProps = {
   children: ReactNode;
@@ -18,13 +19,11 @@ const octagonStyle = {
 };
 
 const baseClassName =
-  "relative inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.24em] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.16)] active:translate-y-0 active:bg-[#b97a14] focus:outline-none disabled:cursor-not-allowed disabled:opacity-60";
+  "relative inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.24em] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(59,53,42,0.12)] active:translate-y-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60";
 
 const variantClassName = {
-  primary:
-    "border border-black bg-black text-white hover:bg-[#D89B1D] hover:border-[#D89B1D] active:bg-[#b97a14]",
-  secondary:
-    "border border-black bg-white text-black hover:bg-[#D89B1D] hover:border-[#D89B1D] hover:text-white active:bg-[#b97a14]",
+  primary: `border border-[${brandColors.accentBeige}] bg-[${brandColors.accentBeige}] text-white hover:bg-[${brandColors.accentHoney}] hover:border-[${brandColors.accentHoney}] active:bg-[#b97a14]`,
+  secondary: `border border-[${brandColors.border}] bg-[${brandColors.cream}] text-[${brandColors.text}] hover:bg-[${brandColors.accentHoney}] hover:border-[${brandColors.accentHoney}] hover:text-white active:bg-[#b97a14]`,
 };
 
 export default function Button({

@@ -51,7 +51,7 @@ const cases: CorporateCase[] = [
 
 export default function CorporateCases() {
   return (
-    <section id="corporate-cases" className="bg-black px-5 py-24 sm:px-8">
+    <section id="corporate-cases" className="bg-[linear-gradient(180deg,#3B352A_0%,#222222_100%)] px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionIntro
@@ -70,7 +70,7 @@ export default function CorporateCases() {
           {cases.map((item) => (
             <article
               key={item.company}
-              className="flex flex-col rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
+              className="flex flex-col rounded-[16px] border border-[#E6DDCF] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-7 shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
                 Since {item.since}

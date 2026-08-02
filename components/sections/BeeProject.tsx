@@ -47,7 +47,7 @@ const steps = [
 
 export default function BeeProject() {
   return (
-    <section id="bee-project" className="bg-white px-5 py-24 sm:px-8">
+    <section id="bee-project" className="bg-[#FAF8F3] px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionIntro eyebrow="Bee Project" title="学校に、ミツバチのいる学びを。">
@@ -63,7 +63,7 @@ export default function BeeProject() {
           {educationEffects.map((effect, index) => (
             <article
               key={effect.field}
-              className="rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
+              className="rounded-[16px] border border-[#E6DDCF] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-7 shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
                 {String(index + 1).padStart(2, "0")}
@@ -86,7 +86,7 @@ export default function BeeProject() {
             {steps.map((step) => (
               <div
                 key={step.step}
-                className="flex flex-col gap-2 rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.06)] sm:flex-row sm:items-baseline sm:gap-8"
+                className="flex flex-col gap-2 rounded-[16px] border border-[#E6DDCF] bg-white p-6 shadow-[0_12px_30px_rgba(59,53,42,0.08)] sm:flex-row sm:items-baseline sm:gap-8"
               >
                 <span className="text-2xl font-semibold text-[#D89B1D] sm:min-w-[3rem]">
                   {step.step}

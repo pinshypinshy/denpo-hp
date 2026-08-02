@@ -92,7 +92,7 @@ const steps = [
 
 export default function CorporateBee() {
   return (
-    <section id="corporate-bee" className="bg-white px-5 py-24 sm:px-8">
+    <section id="corporate-bee" className="bg-[#FAF8F3] px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionIntro
@@ -133,7 +133,7 @@ export default function CorporateBee() {
           </Reveal>
 
           <Reveal stagger className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[24px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-8 text-[#111111] shadow-[0_10px_24px_rgba(0,0,0,0.04)] md:p-10">
+            <div className="rounded-[24px] border border-[#E6DDCF] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-8 text-[#111111] shadow-[0_12px_30px_rgba(59,53,42,0.08)] md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
                 We do
               </p>
@@ -150,7 +150,7 @@ export default function CorporateBee() {
               </ul>
             </div>
 
-            <div className="rounded-[24px] border border-black/10 bg-white p-8 shadow-[0_10px_24px_rgba(0,0,0,0.06)] md:p-10">
+            <div className="rounded-[24px] border border-[#E6DDCF] bg-white p-8 shadow-[0_12px_30px_rgba(59,53,42,0.08)] md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
                 You do
               </p>
@@ -185,7 +185,7 @@ export default function CorporateBee() {
             {targets.map((target) => (
               <article
                 key={target.field}
-                className="rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
+                className="rounded-[16px] border border-[#E6DDCF] bg-white p-7 shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
               >
                 <h4 className="text-lg font-semibold text-black">{target.field}</h4>
                 <p className="mt-3 text-sm leading-7 text-black/70">{target.detail}</p>
@@ -206,7 +206,7 @@ export default function CorporateBee() {
             {steps.map((step) => (
               <div
                 key={step.step}
-                className="flex flex-col gap-2 rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.06)] sm:flex-row sm:items-baseline sm:gap-8"
+                className="flex flex-col gap-2 rounded-[16px] border border-[#E6DDCF] bg-white p-6 shadow-[0_12px_30px_rgba(59,53,42,0.08)] sm:flex-row sm:items-baseline sm:gap-8"
               >
                 <span className="text-2xl font-semibold text-[#D89B1D] sm:min-w-[3rem]">
                   {step.step}

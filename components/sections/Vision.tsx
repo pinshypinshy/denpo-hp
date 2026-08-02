@@ -15,7 +15,7 @@ const trustItems = [
 
 export default function Vision() {
   return (
-    <section id="vision" className="bg-white px-5 py-24 sm:px-8">
+    <section id="vision" className="bg-[#FAF8F3] px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <Reveal stagger className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <SectionIntro eyebrow="Vision" title="一瓶の蜂蜜から、学びの風景を変える。">
@@ -48,7 +48,7 @@ export default function Vision() {
           {trustItems.map((item) => (
             <div
               key={item.label}
-              className="rounded-[16px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-7 text-[#111111] shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
+              className="rounded-[16px] border border-[#E6DDCF] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-7 text-[#111111] shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
                 Trust
