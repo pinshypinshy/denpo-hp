@@ -17,7 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    // globals.css で scroll-behavior: smooth を指定している。
+    // Next.js 16 はこの属性がない限り遷移時に上書きしないため、
+    // 付けないとページ遷移のスクロールリセットまで滑らかに動いてしまう。
+    <html lang="ja" data-scroll-behavior="smooth">
       {isMaintenance ? (
         <body>
           <Maintenance />
