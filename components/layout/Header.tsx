@@ -41,17 +41,29 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger — 開いている間はバツ印に変形する */}
         <button
           type="button"
-          className="text-white md:hidden"
+          className="relative h-6 w-6 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="メニューを開く"
+          aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={menuOpen}
         >
-          <span className="mb-1 block h-0.5 w-6 bg-white" />
-          <span className="mb-1 block h-0.5 w-6 bg-white" />
-          <span className="block h-0.5 w-6 bg-white" />
+          <span
+            className={`absolute left-0 block h-0.5 w-6 bg-white transition-all duration-300 ${
+              menuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-1.5"
+            }`}
+          />
+          <span
+            className={`absolute left-0 top-1/2 block h-0.5 w-6 -translate-y-1/2 bg-white transition-opacity duration-200 ${
+              menuOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`absolute left-0 block h-0.5 w-6 bg-white transition-all duration-300 ${
+              menuOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "top-[1.125rem]"
+            }`}
+          />
         </button>
       </div>
 
