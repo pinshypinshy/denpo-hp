@@ -58,7 +58,9 @@ denpo-hp/
 │ ├── ui/
 │ │ ├── Button.tsx # 八角形クリップのボタン
 │ │ ├── SectionIntro.tsx # eyebrow + h2 + リード文（左寄せ）
-│ │ └── PageHeader.tsx # 下層ページ冒頭の黒帯（eyebrow + h1 + リード文）
+│ │ ├── PageHeader.tsx # 下層ページ冒頭の黒帯（eyebrow + h1 + リード文）
+│ │ ├── Reveal.tsx # スクロール連動の表示アニメーション（"use client"）
+│ │ └── designTokens.ts # 複数箇所で共有するクラス列（色は globals.css の @theme）
 │ └── sections/
 │ ├── Hero.tsx
 │ ├── Vision.tsx
@@ -146,22 +148,63 @@ denpo-hp/
 
 ## デザイントークン
 
-新しいセクションを追加する際は、既存セクションと以下を揃える。
+**コンポーネントに16進カラーを直接書かない。**色と影は `app/globals.css` の `@theme` が唯一の定義場所で、
+そこから Tailwind ユーティリティ（`bg-shell` / `text-ink/70` / `border-line` / `shadow-card`）が生成される。
 
-| 用途              | 値                                                                      |
-| ----------------- | ----------------------------------------------------------------------- |
-| アクセント色      | `#D89B1D`                                                               |
-| eyebrow（白背景） | `text-[#8a6333]`                                                        |
-| eyebrow（黒背景） | `text-[#d6ad62]`                                                        |
-| セクション余白    | `px-5 py-24 sm:px-8`                                                    |
-| コンテナ幅        | `mx-auto max-w-7xl`                                                     |
-| カード角丸        | `rounded-[16px]`（大きなコンテナのみ `rounded-[24px]`）                 |
-| 黒カード背景      | `bg-[linear-gradient(180deg,#222222_0%,#000000_100%)]`                  |
-| 白カード          | `border border-black/10 bg-white shadow-[0_10px_24px_rgba(0,0,0,0.06)]` |
+Tailwind はソースを**テキストとして走査**するため、`bg-[${color}]` のようにテンプレートリテラルで
+クラス名を組み立てるとCSSが生成されず、その指定は無言で消える。必ずトークン名をリテラルで書く。
+
+### 色（`app/globals.css` の `@theme`）
+
+| トークン           | 値        | 用途                                     |
+| ------------------ | --------- | ---------------------------------------- |
+| `honey`            | `#D89B1D` | ブランドアクセント（連番・価格・リンク） |
+| `honey-deep`       | `#C1870F` | ボタン押下時                             |
+| `honey-soft`       | `#D6AD62` | 濃色面の eyebrow                         |
+| `bark`             | `#8A6333` | 淡色面の eyebrow                         |
+| `ink`              | `#222222` | 見出し・本文（濃）                       |
+| `ink-soft`         | `#5F584F` | 本文（淡）                               |
+| `brown`            | `#3B352A` | 濃色面・primaryボタン地                  |
+| `brown-deep`       | `#2B2416` | 濃色面の最暗部                           |
+| `cream`            | `#FFFDF8` | カードのグラデーション上端               |
+| `cream-deep`       | `#F5EBDD` | カードのグラデーション下端               |
+| `shell`            | `#FAF8F3` | セクション背景・ページ地色・フッター     |
+| `shell-alt`        | `#F3EBDD` | 一段濃いセクション背景                   |
+| `line`             | `#E6DDCF` | カード枠・区切り線                       |
+| `line-strong`      | `#C9B99E` | 見出し脇のアクセント罫線                 |
+
+影も同様に `shadow-card`（カード）／`shadow-card-flat`（白カード）／`shadow-bar`（ヘッダー）／
+`shadow-lift`（ボタンhover）を使う。
+
+純白 `bg-white` と白文字 `text-white` はそのまま使ってよい（面として意図的に使っている）。
+
+### 複合クラス（`components/ui/designTokens.ts`）
+
+複数箇所で同じ組み合わせを使うまとまりは、このファイルから import する。
+色を文字列としてここに書き足さないこと（`@theme` と二重管理になる）。
+
+| エクスポート       | 内容                                     |
+| ------------------ | ---------------------------------------- |
+| `brandSection`     | セクション余白 `px-5 py-24 sm:px-8`      |
+| `brandContainer`   | コンテナ幅 `mx-auto max-w-7xl`           |
+| `brandCard`        | 白カード（角丸16px）                     |
+| `brandCardWarm`    | クリームカード（角丸16px）               |
+| `brandPanel`       | 白の大コンテナ（角丸24px）               |
+| `brandPanelWarm`   | クリームの大コンテナ（角丸24px）         |
+| `brandDarkSurface` | 濃色帯の背景グラデーション               |
+
+```tsx
+<section className={`${brandSection} bg-shell`}>
+  <div className={brandContainer}>
+    <article className={`${brandCard} p-7`}>…</article>
+  </div>
+</section>
+```
 
 - 見出しは `SectionIntro`（左寄せ）を使う。中央寄せの見出しは使わない。
 - **絵文字は使わない。**アイコンが必要な場合は連番（`01`〜）やテキストラベルで代替する。
 - 白背景と黒背景のセクションを交互に置いてリズムをつける。
+- 整形は Prettier に従う（`.prettierrc` で `printWidth: 100`）。
 
 ## コーディング規約
 
