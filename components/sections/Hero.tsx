@@ -1,8 +1,5 @@
-import { Yuji_Syuku } from "next/font/google";
 import Image from "next/image";
 import { brandContainer, brandSection } from "@/components/ui/designTokens";
-
-const yujiSyuku = Yuji_Syuku({ subsets: ["latin"], weight: "400" });
 
 export default function Hero() {
   return (
@@ -20,10 +17,16 @@ export default function Hero() {
         className={`${brandSection} ${brandContainer} relative flex min-h-[88svh] items-center justify-center lg:px-12`}
       >
         <div className="max-w-3xl text-center">
-          <h1
-            className={`${yujiSyuku.className} anim-fade-up text-5xl leading-[1.05] sm:text-6xl lg:text-7xl`}
-          >
-            伝蜂
+          <h1 className="anim-fade-up">
+            {/* ロゴは黒一色のPNGしかないため、暗い背景では白抜きにして使う（Header と同じ扱い）。 */}
+            <Image
+              src="/logo/logo_horizontal_black.png"
+              alt="伝蜂"
+              width={704}
+              height={384}
+              priority
+              className="mx-auto h-16 w-auto brightness-0 invert sm:h-20 lg:h-24"
+            />
           </h1>
           {/* 3行は space-y-3 でまとまった1ブロックのため、まとめて1段遅らせる。 */}
           <div className="anim-fade-up anim-delay-1 mx-auto mt-8 max-w-2xl space-y-3 text-base leading-8 text-white/80 sm:text-lg">
