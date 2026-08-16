@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { brandContainer } from "@/components/ui/designTokens";
 
 const navItems = [
   { label: "学校養蜂", href: "/projects" },
@@ -40,11 +41,13 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         isSolid
-          ? "border-b border-black/10 bg-white/95 text-black shadow-[0_6px_20px_rgba(0,0,0,0.06)] backdrop-blur-sm"
+          ? "border-b border-line bg-white/95 text-ink shadow-bar backdrop-blur-sm"
           : "border-b border-white/20 bg-transparent text-white shadow-none"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
+      <div
+        className={`${brandContainer} flex items-center justify-between px-5 py-4 sm:px-8 lg:px-12`}
+      >
         <Link href="/" aria-label="伝蜂 DENPO トップへ">
           <Image
             src="/logo/logo_horizontal_black.png"
@@ -61,8 +64,8 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-[#D89B1D] ${
-                isSolid ? "text-black" : "text-white"
+              className={`text-sm font-medium transition-colors hover:text-honey ${
+                isSolid ? "text-ink" : "text-white"
               }`}
             >
               {item.label}
@@ -79,17 +82,17 @@ export default function Header() {
         >
           <span
             className={`absolute left-0 block h-0.5 w-6 transition-all duration-300 ${
-              isSolid ? "bg-black" : "bg-white"
+              isSolid ? "bg-ink" : "bg-white"
             } ${menuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-1.5"}`}
           />
           <span
             className={`absolute left-0 top-1/2 block h-0.5 w-6 -translate-y-1/2 transition-opacity duration-200 ${
-              isSolid ? "bg-black" : "bg-white"
+              isSolid ? "bg-ink" : "bg-white"
             } ${menuOpen ? "opacity-0" : "opacity-100"}`}
           />
           <span
             className={`absolute left-0 block h-0.5 w-6 transition-all duration-300 ${
-              isSolid ? "bg-black" : "bg-white"
+              isSolid ? "bg-ink" : "bg-white"
             } ${menuOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "top-[1.125rem]"}`}
           />
         </button>
@@ -111,16 +114,18 @@ export default function Header() {
           余白と境界線はさらに内側の nav に置き、閉じたときに高さ0にする。
         */}
         <div className="overflow-hidden">
-          <nav className="border-t border-black/10 bg-white px-5 pb-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] sm:px-8">
+          <nav className="border-t border-line bg-white px-5 pb-4 shadow-card-flat sm:px-8">
             {navItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block py-2 text-sm text-black transition duration-300 ease-out hover:text-[#D89B1D] ${
+                className={`block py-2 text-sm text-ink transition duration-300 ease-out hover:text-honey ${
                   menuOpen ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
                 }`}
                 // 開くときだけ順番にずらす。閉じるときは一斉に消す。
-                style={{ transitionDelay: menuOpen ? `${100 + index * 45}ms` : "0ms" }}
+                style={{
+                  transitionDelay: menuOpen ? `${100 + index * 45}ms` : "0ms",
+                }}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}

@@ -1,6 +1,13 @@
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import {
+  brandCard,
+  brandContainer,
+  brandPanel,
+  brandPanelWarm,
+  brandSection,
+} from "@/components/ui/designTokens";
 
 const benefits = [
   {
@@ -73,8 +80,7 @@ const steps = [
   {
     step: "03",
     title: "設置準備",
-    detail:
-      "管理者様の許可取得、近隣へのご説明、安全対策の整備までを伝蜂がサポートします。",
+    detail: "管理者様の許可取得、近隣へのご説明、安全対策の整備までを伝蜂がサポートします。",
   },
   {
     step: "04",
@@ -85,15 +91,14 @@ const steps = [
   {
     step: "05",
     title: "採蜜・瓶詰め",
-    detail:
-      "採蜜の日は社員の方と一緒に。瓶詰めとラベル貼りまで行い、はちみつをお渡しします。",
+    detail: "採蜜の日は社員の方と一緒に。瓶詰めとラベル貼りまで行い、はちみつをお渡しします。",
   },
 ];
 
 export default function CorporateBee() {
   return (
-    <section id="corporate-bee" className="bg-[#FAF8F3] px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="corporate-bee" className={`${brandSection} bg-shell`}>
+      <div className={brandContainer}>
         <Reveal>
           <SectionIntro
             eyebrow="Corporate Bee Project"
@@ -109,40 +114,33 @@ export default function CorporateBee() {
 
         <Reveal stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, index) => (
-            <article
-              key={benefit.title}
-              className="rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
+            <article key={benefit.title} className={`${brandCard} p-7`}>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-honey">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-4 text-xl font-semibold text-black">{benefit.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-black/70">{benefit.detail}</p>
+              <h3 className="mt-4 text-xl font-semibold text-ink">{benefit.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-ink/70">{benefit.detail}</p>
             </article>
           ))}
         </Reveal>
 
         <div className="mt-20">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-              Service
-            </p>
-            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bark">Service</p>
+            <h3 className="mt-4 text-2xl font-semibold text-ink md:text-3xl">
               養蜂は、すべて伝蜂が行います
             </h3>
           </Reveal>
 
           <Reveal stagger className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[24px] border border-[#E6DDCF] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-8 text-[#111111] shadow-[0_12px_30px_rgba(59,53,42,0.08)] md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
-                We do
-              </p>
-              <h4 className="mt-4 text-xl font-semibold text-[#111111]">伝蜂が行うこと</h4>
+            <div className={`${brandPanelWarm} p-8 text-ink md:p-10`}>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-bark">We do</p>
+              <h4 className="mt-4 text-xl font-semibold text-ink">伝蜂が行うこと</h4>
               <ul className="mt-7 grid gap-4">
                 {ourWork.map((item) => (
                   <li
                     key={item}
-                    className="border-t border-[#e8dcc8] pt-4 text-sm leading-7 text-[#4a463f]"
+                    className="border-t border-line pt-4 text-sm leading-7 text-ink-soft"
                   >
                     {item}
                   </li>
@@ -150,18 +148,14 @@ export default function CorporateBee() {
               </ul>
             </div>
 
-            <div className="rounded-[24px] border border-[#E6DDCF] bg-white p-8 shadow-[0_12px_30px_rgba(59,53,42,0.08)] md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]">
-                You do
-              </p>
-              <h4 className="mt-4 text-xl font-semibold text-black">
-                ご用意いただくもの
-              </h4>
+            <div className={`${brandPanel} p-8 md:p-10`}>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-bark">You do</p>
+              <h4 className="mt-4 text-xl font-semibold text-ink">ご用意いただくもの</h4>
               <ul className="mt-7 grid gap-4">
                 {yourWork.map((item) => (
                   <li
                     key={item}
-                    className="border-t border-black/10 pt-4 text-sm leading-7 text-black/70"
+                    className="border-t border-line pt-4 text-sm leading-7 text-ink/70"
                   >
                     {item}
                   </li>
@@ -173,22 +167,17 @@ export default function CorporateBee() {
 
         <div className="mt-20">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-              For
-            </p>
-            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bark">For</p>
+            <h3 className="mt-4 text-2xl font-semibold text-ink md:text-3xl">
               こんな企業に向いています
             </h3>
           </Reveal>
 
           <Reveal stagger className="mt-10 grid gap-4 sm:grid-cols-2">
             {targets.map((target) => (
-              <article
-                key={target.field}
-                className="rounded-[16px] border border-[#E6DDCF] bg-white p-7 shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
-              >
-                <h4 className="text-lg font-semibold text-black">{target.field}</h4>
-                <p className="mt-3 text-sm leading-7 text-black/70">{target.detail}</p>
+              <article key={target.field} className={`${brandCard} p-7`}>
+                <h4 className="text-lg font-semibold text-ink">{target.field}</h4>
+                <p className="mt-3 text-sm leading-7 text-ink/70">{target.detail}</p>
               </article>
             ))}
           </Reveal>
@@ -196,24 +185,22 @@ export default function CorporateBee() {
 
         <div className="mt-20">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-              Process
-            </p>
-            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">導入の流れ</h3>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bark">Process</p>
+            <h3 className="mt-4 text-2xl font-semibold text-ink md:text-3xl">導入の流れ</h3>
           </Reveal>
 
           <Reveal stagger className="mt-10 grid gap-3">
             {steps.map((step) => (
               <div
                 key={step.step}
-                className="flex flex-col gap-2 rounded-[16px] border border-[#E6DDCF] bg-white p-6 shadow-[0_12px_30px_rgba(59,53,42,0.08)] sm:flex-row sm:items-baseline sm:gap-8"
+                className={`${brandCard} flex flex-col gap-2 p-6 sm:flex-row sm:items-baseline sm:gap-8`}
               >
-                <span className="text-2xl font-semibold text-[#D89B1D] sm:min-w-[3rem]">
+                <span className="text-2xl font-semibold text-honey sm:min-w-[3rem]">
                   {step.step}
                 </span>
                 <div>
-                  <h4 className="text-lg font-semibold text-black">{step.title}</h4>
-                  <p className="mt-2 text-sm leading-7 text-black/70">{step.detail}</p>
+                  <h4 className="text-lg font-semibold text-ink">{step.title}</h4>
+                  <p className="mt-2 text-sm leading-7 text-ink/70">{step.detail}</p>
                 </div>
               </div>
             ))}
@@ -221,7 +208,7 @@ export default function CorporateBee() {
 
           <Reveal className="mt-10">
             <Button href="/contact">導入を相談する</Button>
-            <p className="mt-4 text-sm text-black/50">
+            <p className="mt-4 text-sm text-ink/50">
               ※費用は設置規模・拠点数・イベント実施回数によって変わります。お問い合わせ後にお見積りをご案内いたします。
             </p>
           </Reveal>

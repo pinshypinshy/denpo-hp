@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { brandContainer, brandDarkSurface } from "@/components/ui/designTokens";
 
 type PageHeaderProps = {
   eyebrow: string;
@@ -13,9 +14,9 @@ type PageHeaderProps = {
  */
 export default function PageHeader({ eyebrow, title, children }: PageHeaderProps) {
   return (
-    <section className="bg-[linear-gradient(180deg,#3B352A_0%,#222222_100%)] px-5 pb-20 pt-36 text-white sm:px-8">
-      <div className="mx-auto max-w-7xl">
-        <p className="anim-fade-up mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#d6ad62]">
+    <section className={`${brandDarkSurface} px-5 pb-20 pt-36 text-white sm:px-8`}>
+      <div className={brandContainer}>
+        <p className="anim-fade-up mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-honey-soft">
           {eyebrow}
         </p>
         <h1 className="anim-fade-up anim-delay-1 max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">

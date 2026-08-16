@@ -1,5 +1,6 @@
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import { brandCard, brandContainer, brandSection } from "@/components/ui/designTokens";
 
 export type NewsItem = {
   date: string;
@@ -39,32 +40,27 @@ export default function News({
   const items = typeof limit === "number" ? newsItems.slice(0, limit) : newsItems;
 
   return (
-    <section id="news" className="bg-white px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="news" className={`${brandSection} bg-white`}>
+      <div className={brandContainer}>
         <Reveal>
           <SectionIntro eyebrow={eyebrow} title={title}>
-            <p>
-              巣箱の様子、採蜜の結果、学校での実施報告。現場で起きたことを随時更新しています。
-            </p>
+            <p>巣箱の様子、採蜜の結果、学校での実施報告。現場で起きたことを随時更新しています。</p>
           </SectionIntro>
         </Reveal>
 
         <Reveal stagger className="mt-14 grid gap-4 md:grid-cols-2">
           {items.map((item) => (
-            <article
-              key={item.title}
-              className="rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
-            >
+            <article key={item.title} className={`${brandCard} p-7`}>
               <div className="flex items-center gap-3">
-                <time className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6333]">
+                <time className="text-xs font-semibold uppercase tracking-[0.18em] text-bark">
                   {item.date}
                 </time>
-                <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+                <span className="rounded-full bg-brown px-3 py-1 text-xs font-semibold text-white">
                   {item.tag}
                 </span>
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-black">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-black/70">{item.body}</p>
+              <h3 className="mt-5 text-xl font-semibold text-ink">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-ink/70">{item.body}</p>
             </article>
           ))}
         </Reveal>

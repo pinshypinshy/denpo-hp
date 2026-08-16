@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import { brandCard, brandContainer, brandSection } from "@/components/ui/designTokens";
 
 export type FaqItem = { q: string; a: string };
 
@@ -75,20 +76,18 @@ function AccordionItem({ item }: { item: FaqItem }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="overflow-hidden rounded-[16px] border border-black/10 bg-white shadow-[0_10px_24px_rgba(0,0,0,0.06)]">
+    <div className={`${brandCard} overflow-hidden`}>
       <button
         type="button"
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-black/5"
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-brown/5"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
-        <span className="font-medium text-black">{item.q}</span>
-        <span className="text-xl leading-none text-[#D89B1D]">{open ? "−" : "+"}</span>
+        <span className="font-medium text-ink">{item.q}</span>
+        <span className="text-xl leading-none text-honey">{open ? "−" : "+"}</span>
       </button>
       {open && (
-        <div className="border-t border-black/10 px-6 py-5 text-sm leading-7 text-black/70">
-          {item.a}
-        </div>
+        <div className="border-t border-line px-6 py-5 text-sm leading-7 text-ink/70">{item.a}</div>
       )}
     </div>
   );
@@ -101,15 +100,10 @@ type FaqProps = {
   lead?: string;
 };
 
-export default function Faq({
-  items,
-  eyebrow = "FAQ",
-  title = "よくある質問",
-  lead,
-}: FaqProps) {
+export default function Faq({ items, eyebrow = "FAQ", title = "よくある質問", lead }: FaqProps) {
   return (
-    <section id="faq" className="bg-white px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="faq" className={`${brandSection} bg-white`}>
+      <div className={brandContainer}>
         <Reveal>
           <SectionIntro eyebrow={eyebrow} title={title}>
             {lead && <p>{lead}</p>}

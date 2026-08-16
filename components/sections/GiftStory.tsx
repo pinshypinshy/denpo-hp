@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import { brandContainer, brandDarkSurface, brandSection } from "@/components/ui/designTokens";
 
 export default function GiftStory() {
   return (
-    <section id="gift" className="bg-[linear-gradient(180deg,#3B352A_0%,#222222_100%)] px-5 py-24 text-white sm:px-8">
+    <section id="gift" className={`${brandDarkSurface} ${brandSection} text-white`}>
       <Reveal
         stagger
-        className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+        className={`${brandContainer} grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center`}
       >
         <SectionIntro eyebrow="Gift" title="「電報」のように、想いを届ける。" inverse>
           <p>

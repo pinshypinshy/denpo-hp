@@ -2,6 +2,12 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import {
+  brandCard,
+  brandCardWarm,
+  brandContainer,
+  brandSection,
+} from "@/components/ui/designTokens";
 
 /** TODO: STORES の実URLが決まり次第差し替える（現在は仮リンク）。 */
 const STORES_URL = "https://stores.jp/";
@@ -19,8 +25,7 @@ const products = [
     name: "伝蜂はちみつ（ギフト版）",
     price: "価格未定",
     weight: "65g",
-    description:
-      "紙袋・蜜蝋シーリングスタンプ・手紙風メッセージカード付き。大切な人への贈り物に。",
+    description: "紙袋・蜜蝋シーリングスタンプ・手紙風メッセージカード付き。大切な人への贈り物に。",
     badge: "GIFT",
     image: null,
   },
@@ -28,8 +33,8 @@ const products = [
 
 export default function Shop() {
   return (
-    <section id="shop" className="bg-white px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="shop" className={`${brandSection} bg-white`}>
+      <div className={brandContainer}>
         <Reveal>
           <SectionIntro eyebrow="Shop" title="はちみつを購入する。">
             <p>
@@ -40,10 +45,7 @@ export default function Shop() {
 
         <Reveal stagger className="mt-14 grid gap-6 md:grid-cols-2">
           {products.map((product) => (
-            <article
-              key={product.name}
-              className="overflow-hidden rounded-[16px] border border-[#e8dcc8] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] text-[#111111] shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
-            >
+            <article key={product.name} className={`${brandCardWarm} overflow-hidden text-ink`}>
               <div className="relative aspect-[3/2] bg-white/10">
                 {product.image ? (
                   <Image
@@ -54,26 +56,26 @@ export default function Shop() {
                     className="object-cover"
                   />
                 ) : (
-                  <span className="absolute inset-0 flex items-center justify-center text-xs font-semibold uppercase tracking-[0.24em] text-[#8a6333]/70">
+                  <span className="absolute inset-0 flex items-center justify-center text-xs font-semibold uppercase tracking-[0.24em] text-bark/70">
                     Photo coming soon
                   </span>
                 )}
                 {product.badge && (
-                  <span className="absolute right-4 top-4 rounded-full bg-[#D89B1D] px-3 py-1 text-xs font-semibold text-white">
+                  <span className="absolute right-4 top-4 rounded-full bg-honey px-3 py-1 text-xs font-semibold text-white">
                     {product.badge}
                   </span>
                 )}
               </div>
 
               <div className="p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6333]">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-bark">
                   {product.weight}
                 </p>
-                <h3 className="mt-4 text-xl font-semibold text-[#111111]">{product.name}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#4a463f]">{product.description}</p>
+                <h3 className="mt-4 text-xl font-semibold text-ink">{product.name}</h3>
+                <p className="mt-3 text-sm leading-7 text-ink-soft">{product.description}</p>
                 <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
-                  <span className="text-xl font-semibold text-[#D89B1D]">{product.price}</span>
-                  <Button href={STORES_URL} variant="secondary" external>
+                  <span className="text-xl font-semibold text-honey">{product.price}</span>
+                  <Button href={STORES_URL} external>
                     購入する
                   </Button>
                 </div>
@@ -82,12 +84,12 @@ export default function Shop() {
           ))}
         </Reveal>
 
-        <Reveal className="mt-6 rounded-[16px] border border-black/10 bg-white p-7 shadow-[0_10px_24px_rgba(0,0,0,0.06)]">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
+        <Reveal className={`${brandCard} mt-6 p-7`}>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-honey">
             Coming Soon
           </p>
-          <h3 className="mt-4 text-xl font-semibold text-black">定期便サービス</h3>
-          <p className="mt-3 text-sm leading-7 text-black/70">
+          <h3 className="mt-4 text-xl font-semibold text-ink">定期便サービス</h3>
+          <p className="mt-3 text-sm leading-7 text-ink/70">
             毎月届く「伝蜂便」を準備中です。採蜜の時期に合わせて、その季節の蜂蜜をお届けします。
           </p>
         </Reveal>

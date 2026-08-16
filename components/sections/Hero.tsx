@@ -1,11 +1,12 @@
 import { Yuji_Syuku } from "next/font/google";
 import Image from "next/image";
+import { brandContainer, brandSection } from "@/components/ui/designTokens";
 
 const yujiSyuku = Yuji_Syuku({ subsets: ["latin"], weight: "400" });
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[88svh] overflow-hidden bg-black text-white">
+    <section className="relative min-h-[88svh] overflow-hidden bg-ink text-white">
       <Image
         src="/images/hero_main.jpg"
         alt="採蜜に取り組む伝蜂の活動風景"
@@ -15,7 +16,9 @@ export default function Hero() {
         className="anim-zoom-out object-cover opacity-60"
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.72)_45%,rgba(0,0,0,0.22)_100%)]" />
-      <div className="relative mx-auto flex min-h-[88svh] max-w-7xl items-center justify-center px-5 py-24 sm:px-8 lg:px-12">
+      <div
+        className={`${brandSection} ${brandContainer} relative flex min-h-[88svh] items-center justify-center lg:px-12`}
+      >
         <div className="max-w-3xl text-center">
           <h1
             className={`${yujiSyuku.className} anim-fade-up text-5xl leading-[1.05] sm:text-6xl lg:text-7xl`}

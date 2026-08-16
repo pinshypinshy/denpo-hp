@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import { brandCard, brandContainer, brandSection } from "@/components/ui/designTokens";
 
 type Member = {
   name: string;
@@ -30,8 +31,8 @@ const members: Member[] = [
 
 export default function Members() {
   return (
-    <section id="members" className="bg-white px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="members" className={`${brandSection} bg-white`}>
+      <div className={brandContainer}>
         <Reveal>
           <SectionIntro eyebrow="Team" title="現場に立つ、二人の共同代表。">
             <p>
@@ -43,10 +44,7 @@ export default function Members() {
 
         <Reveal stagger className="mt-14 grid gap-6 md:grid-cols-2">
           {members.map((member) => (
-            <article
-              key={member.name}
-              className="overflow-hidden rounded-[16px] border border-black/10 bg-white shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
-            >
+            <article key={member.name} className={`${brandCard} overflow-hidden`}>
               <div className="relative aspect-[4/3]">
                 <Image
                   src={member.image}
@@ -58,11 +56,11 @@ export default function Members() {
               </div>
 
               <div className="p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#D89B1D]">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-honey">
                   {member.role}
                 </p>
-                <h3 className="mt-4 text-2xl font-semibold text-black">{member.name}</h3>
-                <p className="mt-3 text-sm leading-7 text-black/70">{member.bio}</p>
+                <h3 className="mt-4 text-2xl font-semibold text-ink">{member.name}</h3>
+                <p className="mt-3 text-sm leading-7 text-ink/70">{member.bio}</p>
               </div>
             </article>
           ))}

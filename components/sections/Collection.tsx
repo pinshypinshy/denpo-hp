@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
+import { brandContainer, brandSection } from "@/components/ui/designTokens";
 
 const entries = [
   {
@@ -39,14 +40,14 @@ const entries = [
 
 export default function Collection() {
   return (
-    <section id="collection" className="bg-[#F3EBDD] px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="collection" className={`${brandSection} bg-shell-alt`}>
+      <div className={brandContainer}>
         <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {entries.map((entry) => (
             <Link
               key={entry.href}
               href={entry.href}
-              className="group relative block aspect-[3/4] overflow-hidden rounded-[16px] border border-[#E6DDCF] shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
+              className="group relative block aspect-[3/4] overflow-hidden rounded-[16px] border border-line shadow-card"
             >
               <Image
                 src={entry.image}
@@ -58,14 +59,14 @@ export default function Collection() {
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.10)_0%,rgba(0,0,0,0.34)_34%,rgba(0,0,0,0.78)_62%,rgba(0,0,0,0.95)_100%)]" />
 
               <div className="absolute inset-x-0 bottom-0 p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-honey">
                   {entry.eyebrow}
                 </p>
                 <h3 className="mt-4 text-2xl font-semibold leading-tight text-white">
                   {entry.title}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-white/75">{entry.body}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors group-hover:text-[#D89B1D]">
+                <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors group-hover:text-honey">
                   View
                   <span
                     aria-hidden="true"

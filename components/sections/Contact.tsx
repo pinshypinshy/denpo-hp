@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import { brandCard, brandContainer, brandSection } from "@/components/ui/designTokens";
 
 const inquiryTypes = [
   "学校養蜂について",
@@ -34,10 +35,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-white px-5 py-24 sm:px-8">
+    <section id="contact" className={`${brandSection} bg-white`}>
       <Reveal
         stagger
-        className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+        className={`${brandContainer} grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start`}
       >
         <SectionIntro eyebrow="Contact" title="学校・企業の導入、商品、取材のご相談へ。">
           <p>
@@ -46,13 +47,10 @@ export default function Contact() {
           </p>
         </SectionIntro>
 
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_12px_32px_rgba(0,0,0,0.08)] sm:p-8"
-        >
+        <form onSubmit={handleSubmit} className={`${brandCard} p-6 sm:p-8`}>
           <div className="space-y-5">
             <div>
-              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="inquiryType">
+              <label className="mb-2 block text-sm font-semibold text-ink" htmlFor="inquiryType">
                 お問い合わせ種別
               </label>
               <select
@@ -60,7 +58,7 @@ export default function Contact() {
                 name="inquiryType"
                 value={formData.inquiryType}
                 onChange={handleChange}
-                className="w-full border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+                className="w-full border border-brown/30 bg-white px-4 py-3 text-sm text-ink outline-none"
               >
                 {inquiryTypes.map((item) => (
                   <option key={item} value={item}>
@@ -71,7 +69,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="name">
+              <label className="mb-2 block text-sm font-semibold text-ink" htmlFor="name">
                 お名前
               </label>
               <input
@@ -80,14 +78,14 @@ export default function Contact() {
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+                className="w-full border border-brown/30 bg-white px-4 py-3 text-sm text-ink outline-none"
                 placeholder="例：山田 太郎"
                 required
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="email">
+              <label className="mb-2 block text-sm font-semibold text-ink" htmlFor="email">
                 メールアドレス
               </label>
               <input
@@ -96,14 +94,14 @@ export default function Contact() {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+                className="w-full border border-brown/30 bg-white px-4 py-3 text-sm text-ink outline-none"
                 placeholder="example@email.com"
                 required
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-black" htmlFor="message">
+              <label className="mb-2 block text-sm font-semibold text-ink" htmlFor="message">
                 お問い合わせ内容
               </label>
               <textarea
@@ -112,7 +110,7 @@ export default function Contact() {
                 rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full resize-none border border-black/20 bg-white px-4 py-3 text-sm text-black outline-none"
+                className="w-full resize-none border border-brown/30 bg-white px-4 py-3 text-sm text-ink outline-none"
                 placeholder="ご相談内容をお聞かせください。"
                 required
               />

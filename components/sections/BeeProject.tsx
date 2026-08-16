@@ -1,6 +1,12 @@
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionIntro from "@/components/ui/SectionIntro";
+import {
+  brandCard,
+  brandCardWarm,
+  brandContainer,
+  brandSection,
+} from "@/components/ui/designTokens";
 
 const educationEffects = [
   {
@@ -22,7 +28,11 @@ const educationEffects = [
 ];
 
 const steps = [
-  { step: "01", title: "お問い合わせ", detail: "Instagramまたはお問い合わせよりご連絡ください。" },
+  {
+    step: "01",
+    title: "お問い合わせ",
+    detail: "Instagramまたはお問い合わせよりご連絡ください。",
+  },
   {
     step: "02",
     title: "ヒアリング・提案",
@@ -47,8 +57,8 @@ const steps = [
 
 export default function BeeProject() {
   return (
-    <section id="bee-project" className="bg-[#FAF8F3] px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="bee-project" className={`${brandSection} bg-shell`}>
+      <div className={brandContainer}>
         <Reveal>
           <SectionIntro eyebrow="Bee Project" title="学校に、ミツバチのいる学びを。">
             <p>
@@ -61,39 +71,34 @@ export default function BeeProject() {
 
         <Reveal stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {educationEffects.map((effect, index) => (
-            <article
-              key={effect.field}
-              className="rounded-[16px] border border-[#E6DDCF] bg-[linear-gradient(180deg,#FFFDF8_0%,#F5EBDD_100%)] p-7 shadow-[0_12px_30px_rgba(59,53,42,0.08)]"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D89B1D]">
+            <article key={effect.field} className={`${brandCardWarm} p-7`}>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-honey">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-4 text-xl font-semibold text-black">{effect.field}</h3>
-              <p className="mt-3 text-sm leading-7 text-black/70">{effect.detail}</p>
+              <h3 className="mt-4 text-xl font-semibold text-ink">{effect.field}</h3>
+              <p className="mt-3 text-sm leading-7 text-ink/70">{effect.detail}</p>
             </article>
           ))}
         </Reveal>
 
         <div className="mt-20">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6333]">
-              Process
-            </p>
-            <h3 className="mt-4 text-2xl font-semibold text-black md:text-3xl">導入の流れ</h3>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bark">Process</p>
+            <h3 className="mt-4 text-2xl font-semibold text-ink md:text-3xl">導入の流れ</h3>
           </Reveal>
 
           <Reveal stagger className="mt-10 grid gap-3">
             {steps.map((step) => (
               <div
                 key={step.step}
-                className="flex flex-col gap-2 rounded-[16px] border border-[#E6DDCF] bg-white p-6 shadow-[0_12px_30px_rgba(59,53,42,0.08)] sm:flex-row sm:items-baseline sm:gap-8"
+                className={`${brandCard} flex flex-col gap-2 p-6 sm:flex-row sm:items-baseline sm:gap-8`}
               >
-                <span className="text-2xl font-semibold text-[#D89B1D] sm:min-w-[3rem]">
+                <span className="text-2xl font-semibold text-honey sm:min-w-[3rem]">
                   {step.step}
                 </span>
                 <div>
-                  <h4 className="text-lg font-semibold text-black">{step.title}</h4>
-                  <p className="mt-2 text-sm leading-7 text-black/70">{step.detail}</p>
+                  <h4 className="text-lg font-semibold text-ink">{step.title}</h4>
+                  <p className="mt-2 text-sm leading-7 text-ink/70">{step.detail}</p>
                 </div>
               </div>
             ))}
@@ -101,7 +106,7 @@ export default function BeeProject() {
 
           <Reveal className="mt-10">
             <Button href="/contact">導入を相談する</Button>
-            <p className="mt-4 text-sm text-black/50">
+            <p className="mt-4 text-sm text-ink/50">
               ※料金・詳細はお問い合わせ後にご案内いたします。
             </p>
           </Reveal>
