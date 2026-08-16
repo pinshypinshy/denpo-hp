@@ -86,9 +86,18 @@ function AccordionItem({ item }: { item: FaqItem }) {
         <span className="font-medium text-ink">{item.q}</span>
         <span className="text-xl leading-none text-honey">{open ? "−" : "+"}</span>
       </button>
-      {open && (
-        <div className="border-t border-line px-6 py-5 text-sm leading-7 text-ink/70">{item.a}</div>
-      )}
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+        aria-hidden={!open}
+      >
+        <div className="overflow-hidden">
+          <div className="border-t border-line px-6 py-5 text-sm leading-7 text-ink/70">
+            {item.a}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
