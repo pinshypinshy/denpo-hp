@@ -12,9 +12,7 @@ export default function MembersPage() {
   return (
     <>
       <PageHeader eyebrow="Members" title="メンバー">
-        <p>
-          伝蜂の活動は、実際に現場で手を動かす少人数の運営で成り立っています。
-        </p>
+        <p>伝蜂の活動は、実際に現場で手を動かす少人数の運営で成り立っています。</p>
       </PageHeader>
       <Members />
     </>

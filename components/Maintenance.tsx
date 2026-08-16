@@ -14,9 +14,7 @@ export default function Maintenance() {
       <h1 className="mt-10 text-2xl font-semibold text-amber-900 sm:text-3xl">
         現在リニューアル中です
       </h1>
-      <p className="mt-4 text-sm text-amber-800 sm:text-base">
-        しばらくお待ちください
-      </p>
+      <p className="mt-4 text-sm text-amber-800 sm:text-base">しばらくお待ちください</p>
     </main>
   );
 }

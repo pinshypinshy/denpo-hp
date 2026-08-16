@@ -21,11 +21,7 @@ type RevealProps = {
  * 表示状態は state ではなく classList で直接切り替える。
  * 再レンダリングが不要なうえ、サーバーとクライアントで同じマークアップになる。
  */
-export default function Reveal({
-  children,
-  className = "",
-  stagger = false,
-}: RevealProps) {
+export default function Reveal({ children, className = "", stagger = false }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
