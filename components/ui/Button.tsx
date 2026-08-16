@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { brandColors } from "@/components/ui/designTokens";
 
 type ButtonProps = {
   children: ReactNode;
@@ -19,11 +18,18 @@ const octagonStyle = {
 };
 
 const baseClassName =
-  "relative inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.24em] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(59,53,42,0.12)] active:translate-y-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60";
+  "relative inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.24em] transition-all duration-300 hover:-translate-y-1 hover:shadow-lift active:translate-y-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60";
 
+/**
+ * クラス名は必ずリテラルで書く。
+ * Tailwind はソースをテキストとして走査するため、`bg-[${color}]` のように
+ * テンプレートリテラルで組み立てるとCSSが生成されず、背景が透明になる。
+ */
 const variantClassName = {
-  primary: `border border-[${brandColors.accentBeige}] bg-[${brandColors.accentBeige}] text-white hover:bg-[${brandColors.accentHoney}] hover:border-[${brandColors.accentHoney}] active:bg-[#b97a14]`,
-  secondary: `border border-[${brandColors.border}] bg-[${brandColors.cream}] text-[${brandColors.text}] hover:bg-[${brandColors.accentHoney}] hover:border-[${brandColors.accentHoney}] hover:text-white active:bg-[#b97a14]`,
+  primary:
+    "border border-brown bg-brown text-white hover:bg-honey hover:border-honey hover:text-brown-deep active:bg-honey-deep active:border-honey-deep",
+  secondary:
+    "border border-brown/35 bg-cream text-brown hover:bg-brown hover:border-brown hover:text-white active:bg-brown-deep",
 };
 
 export default function Button({

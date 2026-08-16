@@ -1,8 +1,51 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+ * ブランドトークン
+ *
+ * 色と影の唯一の定義場所。ここに書いた `--color-*` / `--shadow-*` は
+ * Tailwind のユーティリティ（bg-shell, text-ink/70, border-line, shadow-card …）
+ * として生える。
+ *
+ * コンポーネント側に 16進カラーを直接書かないこと。
+ * Tailwind はソースをテキストとして走査するため `bg-[${color}]` のような
+ * 組み立ては CSS が生成されず無効になる。必ずここのトークン名を使う。
+ * ------------------------------------------------------------------------- */
+@theme {
+  /* アクセント */
+  --color-honey: #d89b1d; /* ブランドアクセント */
+  --color-honey-deep: #c1870f; /* 押下時 */
+  --color-honey-soft: #d6ad62; /* 濃色面の eyebrow */
+  --color-bark: #8a6333; /* 淡色面の eyebrow */
+
+  /* 文字 */
+  --color-ink: #222222; /* 見出し・本文（濃） */
+  --color-ink-soft: #5f584f; /* 本文（淡） */
+
+  /* 濃色面 */
+  --color-brown: #3b352a;
+  --color-brown-deep: #2b2416;
+
+  /* 淡色面 */
+  --color-cream: #fffdf8; /* カード上端 */
+  --color-cream-deep: #f5ebdd; /* カード下端 */
+  --color-shell: #faf8f3; /* セクション背景・ページ地色 */
+  --color-shell-alt: #f3ebdd;
+
+  /* 罫線 */
+  --color-line: #e6ddcf; /* カード枠・区切り線 */
+  --color-line-strong: #c9b99e; /* 見出し脇のアクセント罫線 */
+
+  /* 影 */
+  --shadow-card: 0 12px 30px rgba(59, 53, 42, 0.08);
+  --shadow-card-flat: 0 10px 24px rgba(0, 0, 0, 0.06);
+  --shadow-bar: 0 6px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lift: 0 12px 24px rgba(59, 53, 42, 0.12);
+}
+
 :root {
-  --background: #faf8f3;
-  --foreground: #222222;
+  --background: var(--color-shell);
+  --foreground: var(--color-ink);
 }
 
 @theme inline {
@@ -25,7 +68,7 @@ body {
 }
 
 ::selection {
-  background: #d89b1d;
+  background: var(--color-honey);
   color: #ffffff;
 }
 
