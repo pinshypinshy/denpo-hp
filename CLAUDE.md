@@ -126,7 +126,7 @@ denpo-hp/
     → Turnstile siteverify で検証
     → Resend で2通送信
        ├ 通知：noreply@denpobee.com → info@denpobee.com
-       │        → Email Routing で bee.school.project@gmail.com へ転送
+       │        → Email Routing で団体の共有Gmailへ転送（宛先は Cloudflare の管理画面で確認）
        └ 自動返信：noreply@denpobee.com → 問い合わせ者
 ```
 
@@ -261,7 +261,7 @@ Tailwind はソースを**テキストとして走査**するため、`bg-[${col
 - **プライバシーポリシー**：フッターに「近日公開」と記載したまま未作成。法人化に伴い、法人名義で作成する。
   **問い合わせフォームが稼働し、氏名とメールアドレスを実際に取得しているため優先度が上がっている。**
   利用目的・保管場所（Resend と共有Gmail）・第三者提供の有無を明示する必要がある
-- **問い合わせ返信時の差出人**：共有Gmailから返信すると `bee.school.project@gmail.com` 名義で相手に届く。
+- **問い合わせ返信時の差出人**：共有Gmailから返信すると、その Gmail アドレス名義で相手に届く。
   `info@denpobee.com` 名義で送るには、Gmail の「他のアドレスから送信」に Resend の SMTP を登録する
 - **問い合わせの保存**：内容はメールで届くのみで、データベース等には保存していない。
   受信箱がそのまま履歴になる。問い合わせ管理が必要になった時点で保存層を検討する
