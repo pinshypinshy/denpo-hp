@@ -1,0 +1,12 @@
+# `npx wrangler pages dev out/` でのローカル動作確認用。
+# このファイルを .dev.vars にコピーして実際の値を入れる（.dev.vars はコミットしない）。
+
+# Resend の APIキー（https://resend.com/api-keys）
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Turnstile のシークレットキー。ローカル確認では常に成功するテストキーを使える:
+# 1x0000000000000000000000000000000AA
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+
+# 問い合わせ通知の受信先（本番は info@denpobee.com → Email Routing で転送）
+CONTACT_TO_EMAIL=info@denpobee.com

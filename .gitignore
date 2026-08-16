@@ -42,6 +42,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# wrangler (Pages Functions のローカルシークレット)
+.dev.vars
+.wrangler/
+
 # vercel
 .vercel
 
