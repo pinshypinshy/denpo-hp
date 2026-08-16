@@ -20,9 +20,10 @@
 | TypeScript                 | 型安全性                           |
 | Tailwind CSS               | スタイリング                       |
 | Cloudflare Pages           | ホスティング                       |
-| Cloudflare Pages Functions | 動的API（Phase 2で追加）           |
-| Resend                     | メール送信（Phase 2で追加）        |
-| Cloudflare Turnstile       | フォームのbot対策（Phase 2で追加） |
+| Cloudflare Pages Functions | 動的API                            |
+| Resend                     | メール送信                         |
+| Cloudflare Turnstile       | フォームのbot対策                  |
+| Cloudflare Email Routing   | `info@denpobee.com` の受信・転送   |
 | Notion API                 | ニュース動的化（Phase 3で追加）    |
 
 ### 静的出力設定（Phase 1）
@@ -80,7 +81,8 @@ denpo-hp/
 │ └── images/ # 写真素材
 ├── functions/ # Cloudflare Pages Functions。out/ とは別に、リポジトリ直下がPagesに拾われる
 │ └── api/
-│ └── contact.ts # 問い合わせ受付API（Phase 2で追加）
+│ └── contact.ts # 問い合わせ受付API（Turnstile検証 → Resendで2通送信）
+├── .dev.vars.example # wrangler pages dev 用のシークレット雛形（実体の .dev.vars は非コミット）
 ├── AGENTS.md
 ├── CLAUDE.md
 ├── next.config.ts
@@ -111,9 +113,45 @@ denpo-hp/
 ## 開発フェーズ
 
 - **Phase 1**：Next.js + 静的HTML/CSS で全セクション実装（完了）
-- **Phase 2**：Cloudflare Pages Functions + Resend でお問い合わせフォームを実装
-  （`Contact.tsx` を `fetch` 送信に変更、`functions/api/contact.ts` を追加、Turnstile で bot 対策）
+- **Phase 2**：Cloudflare Pages Functions + Resend でお問い合わせフォームを実装（完了）
+  `Contact.tsx` を `fetch` 送信に変更し、`functions/api/contact.ts` で Turnstile 検証と
+  メール送信を行う。本番で実送信を確認済み。
 - **Phase 3**：Cloudflare Functions + Notion API でニュースセクション動的化（`News.tsx` の `newsItems` を差し替え）
+
+### 問い合わせの経路（Phase 2）
+
+```
+ブラウザ（Turnstileで通行証を取得）
+  → POST /api/contact（functions/api/contact.ts）
+    → Turnstile siteverify で検証
+    → Resend で2通送信
+       ├ 通知：noreply@denpobee.com → info@denpobee.com
+       │        → Email Routing で bee.school.project@gmail.com へ転送
+       └ 自動返信：noreply@denpobee.com → 問い合わせ者
+```
+
+- 通知メールには `reply_to` に問い合わせ者のアドレスを入れる。受信箱から返信すればそのまま相手に届く。
+- **自動返信の失敗は問い合わせ自体の成立を妨げない。**通知が送れた時点で 200 を返す。
+- `info@denpobee.com` は**転送エイリアスであり、メールボックスではない**。
+  この経路のままでは `info@` を差出人にした送信はできない（必要になれば Gmail に Resend の SMTP を登録する）。
+
+### 環境変数
+
+Cloudflare Pages のプロジェクト設定（Variables and Secrets）に登録する。
+
+| 変数名                           | 種別         | 用途                                   |
+| -------------------------------- | ------------ | -------------------------------------- |
+| `RESEND_API_KEY`                 | シークレット | Resend のAPIキー                       |
+| `TURNSTILE_SECRET_KEY`           | シークレット | Turnstile の検証用キー                 |
+| `CONTACT_TO_EMAIL`               | テキスト     | 通知の宛先（`info@denpobee.com`）      |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | テキスト     | Turnstile のサイトキー（公開してよい） |
+| `NEXT_PUBLIC_MAINTENANCE_MODE`   | テキスト     | メンテナンス表示の切り替え             |
+
+- **シークレットをコードに書かない。**`functions/api/contact.ts` は `env` 経由でのみ参照する。
+- `NEXT_PUBLIC_` 系は静的出力にビルド時点の値が焼き込まれるため、**変更したら再ビルドが必要**。
+  サイトキーが未設定のままビルドすると、フォームは送信不可の案内文に切り替わる。
+- ローカルで Functions を動かす場合は `.dev.vars.example` を `.dev.vars` にコピーして
+  `npx wrangler pages dev out/` を使う（`npm run dev` では `functions/` は動かない）。
 
 ## 設計上の重要事項
 
@@ -220,6 +258,10 @@ Tailwind はソースを**テキストとして走査**するため、`bg-[${col
 - **ギフト版の価格**：「価格未定」表示のまま
 - **商品画像**：`product_regular_jar.jpg` はモックアップからの切り出しで、ラベルが「GAKKO」表記。確定版ができ次第差し替える。ギフト版の写真は未用意（プレースホルダ表示）
 - **`hero_main.jpg`**：養蜂ではなく山と湖の風景写真。alt属性の記述と内容が一致していない
-- **プライバシーポリシー**：フッターに「近日公開」と記載したまま未作成。法人化に伴い、法人名義で作成する
-- **問い合わせの受信先アドレス**：(例) `info@denpobee.com` を Cloudflare Email Routing で転送するか、団体の共有Gmailに受けるか未確定
-- **Resend のドメイン検証**：`denpobee.com` の DKIM／SPF レコードが未設定。Phase 2 の実装前に必要
+- **プライバシーポリシー**：フッターに「近日公開」と記載したまま未作成。法人化に伴い、法人名義で作成する。
+  **問い合わせフォームが稼働し、氏名とメールアドレスを実際に取得しているため優先度が上がっている。**
+  利用目的・保管場所（Resend と共有Gmail）・第三者提供の有無を明示する必要がある
+- **問い合わせ返信時の差出人**：共有Gmailから返信すると `bee.school.project@gmail.com` 名義で相手に届く。
+  `info@denpobee.com` 名義で送るには、Gmail の「他のアドレスから送信」に Resend の SMTP を登録する
+- **問い合わせの保存**：内容はメールで届くのみで、データベース等には保存していない。
+  受信箱がそのまま履歴になる。問い合わせ管理が必要になった時点で保存層を検討する
