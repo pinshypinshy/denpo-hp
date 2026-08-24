@@ -48,7 +48,16 @@ export default function Header() {
       <div
         className={`${brandContainer} flex items-center justify-between px-5 py-4 sm:px-8 lg:px-12`}
       >
-        <Link href="/" aria-label="伝蜂 DENPO トップへ">
+        <Link href="/" aria-label="伝蜂 DENPO トップへ" className="flex items-center gap-2.5">
+          {/* シンボルマーク。alt は空。Link 側の aria-label が読まれるため、重複して読ませない。 */}
+          <Image
+            src="/logo/logo_mark_black.png"
+            alt=""
+            width={328}
+            height={482}
+            priority
+            className={`h-9 w-auto transition-all duration-300 ${isSolid ? "" : "brightness-0 invert"}`}
+          />
           <Image
             src="/logo/logo_horizontal_black.png"
             alt="伝蜂 DENPO"
