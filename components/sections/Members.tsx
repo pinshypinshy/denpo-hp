@@ -14,13 +14,13 @@ type Member = {
 
 const members: Member[] = [
   {
-    name: "飯塚",
+    name: "飯塚 航大",
     role: "共同代表 / 食品衛生責任者",
     bio: "慶應義塾大学在籍。養蜂と食の安全に情熱を持ち、伝蜂の創設メンバーとして活動。保健所との交渉から商品開発まで幅広く担当。",
     image: "/images/member_iizuka.jpg",
   },
   {
-    name: "松丸",
+    name: "松丸 小虎",
     role: "共同代表 / 食品衛生責任者",
     bio: "慶應義塾大学在籍。学校向けBee Projectの企画・運営をリード。ミツバチと子どもたちをつなぐプログラム設計を担当。",
     image: "/images/member_matsumaru.jpg",
