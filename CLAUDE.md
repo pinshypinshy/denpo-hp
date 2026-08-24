@@ -77,8 +77,10 @@ denpo-hp/
 │ ├── Faq.tsx # アコーディオン（"use client"）
 │ └── Contact.tsx
 ├── public/
-│ ├── logo/ # ロゴ各種（favicon, OGP等）
+│ ├── logo/ # ロゴ各種（サイト内で参照する画像）
 │ └── images/ # 写真素材
+├── assets/ # 配信しない原本素材。public/ 外なのでサイトには含まれない
+│ └── logo/ # ファビコン生成元（favicon.JPG）等
 ├── functions/ # Cloudflare Pages Functions。out/ とは別に、リポジトリ直下がPagesに拾われる
 │ └── api/
 │ └── contact.ts # 問い合わせ受付API（Turnstile検証 → Resendで2通送信）
