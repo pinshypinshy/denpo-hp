@@ -113,7 +113,6 @@ cp .env.example .env.local
 | `/products`  | 商品紹介     |
 | `/projects`  | 学校養蜂     |
 | `/corporate` | 企業養蜂     |
-| `/members`   | メンバー     |
 | `/contact`   | お問い合わせ |
 
 ## ディレクトリ構成

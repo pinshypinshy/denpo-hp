@@ -49,7 +49,6 @@ denpo-hp/
 │ ├── products/page.tsx # /products 商品紹介
 │ ├── projects/page.tsx # /projects 学校養蜂
 │ ├── corporate/page.tsx # /corporate 企業養蜂
-│ ├── members/page.tsx # /members  メンバー
 │ └── contact/page.tsx # /contact  お問い合わせ
 ├── components/
 │ ├── Maintenance.tsx # リニューアル中表示
@@ -73,7 +72,6 @@ denpo-hp/
 │ ├── News.tsx # 活動報告。Phase 3でNotion API動的化
 │ ├── Shop.tsx # 商品一覧・STORES誘導
 │ ├── GiftStory.tsx # ギフトコンセプト
-│ ├── Members.tsx
 │ ├── Faq.tsx # アコーディオン（"use client"）
 │ └── Contact.tsx
 ├── public/
@@ -93,7 +91,7 @@ denpo-hp/
 
 ## ページ構成
 
-ヘッダーナビは **商品 / 学校養蜂 / 企業養蜂 / メンバー / お問い合わせ** の5項目。
+ヘッダーナビは **商品 / 学校養蜂 / 企業養蜂 / お問い合わせ** の4項目。
 
 | ルート       | ページ       | セクション構成                                                    |
 | ------------ | ------------ | ----------------------------------------------------------------- |
@@ -101,7 +99,6 @@ denpo-hp/
 | `/products`  | 商品紹介     | PageHeader → Shop → GiftStory → Faq（消費者向け）                 |
 | `/projects`  | 学校養蜂     | PageHeader → BeeProject → PartnerSchools → News → Faq（学校向け） |
 | `/corporate` | 企業養蜂     | PageHeader → CorporateBee → CorporateCases → Faq（企業向け）      |
-| `/members`   | メンバー     | PageHeader → Members                                              |
 | `/contact`   | お問い合わせ | PageHeader → Contact                                              |
 
 - **Contact セクションは `/contact` にのみ置く。**各ページ末尾には配置しない。

@@ -10,7 +10,6 @@ const navItems = [
   { label: "学校養蜂", href: "/projects" },
   { label: "企業養蜂", href: "/corporate" },
   { label: "商品", href: "/products" },
-  { label: "メンバー", href: "/members" },
   { label: "お問い合わせ", href: "/contact" },
 ];
 
