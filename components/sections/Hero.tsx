@@ -4,13 +4,14 @@ import { brandContainer, brandSection } from "@/components/ui/designTokens";
 export default function Hero() {
   return (
     <section className="relative min-h-[88svh] overflow-hidden bg-ink text-white">
+      {/* 人物が左寄りに写っており、スマホ幅の中央基準だと左端の人物が切れる。少し左を基準にする。 */}
       <Image
         src="/images/activity_carrying_tools_01.jpg"
         alt="台車で養蜂道具を運ぶ伝蜂の活動風景"
         fill
         priority
         sizes="100vw"
-        className="anim-zoom-out object-cover opacity-60"
+        className="anim-zoom-out object-cover object-[42%_50%] opacity-60"
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.72)_45%,rgba(0,0,0,0.22)_100%)]" />
       <div
