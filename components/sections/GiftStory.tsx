@@ -24,8 +24,8 @@ export default function GiftStory() {
 
         <div className="relative min-h-[360px] overflow-hidden rounded-[24px]">
           <Image
-            src="/images/activity_beehive_01.jpg"
-            alt="伝蜂の巣箱と養蜂の様子"
+            src="/images/activity_harvest_jars_01.jpg"
+            alt="採れた蜂蜜の瓶を囲んだ集合写真"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover"

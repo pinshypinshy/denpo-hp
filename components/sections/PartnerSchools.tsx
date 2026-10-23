@@ -26,8 +26,8 @@ export default function PartnerSchools() {
         >
           <div className="relative min-h-[320px]">
             <Image
-              src="/images/case_shiki_harvest_01.jpg"
-              alt="慶應義塾志木高等学校での採蜜体験"
+              src="/images/activity_group_frames_01.jpg"
+              alt="慶應義塾志木高等学校での養蜂活動の様子"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

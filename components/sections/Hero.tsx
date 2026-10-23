@@ -5,8 +5,8 @@ export default function Hero() {
   return (
     <section className="relative min-h-[88svh] overflow-hidden bg-ink text-white">
       <Image
-        src="/images/hero_main.jpg"
-        alt="採蜜に取り組む伝蜂の活動風景"
+        src="/images/activity_carrying_tools_01.jpg"
+        alt="台車で養蜂道具を運ぶ伝蜂の活動風景"
         fill
         priority
         sizes="100vw"
