@@ -5,7 +5,7 @@
 - 公開URL：[https://denpobee.com](https://denpobee.com)
 - Instagram：[@denpo_bee](https://www.instagram.com/denpo_bee)
 
-はちみつのEC販売（STORESへ誘導）、学校向け養蜂導入事業（Bee Project）、
+はちみつの販売（当面はCAMPFIREのクラウドファンディングへ誘導）、学校向け養蜂導入事業（Bee Project）、
 企業向け養蜂代行事業（Corporate Bee Project）の3軸で構成している。
 
 ## 技術スタック
