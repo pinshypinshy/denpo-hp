@@ -60,7 +60,7 @@ export default function BeeProject() {
     <section id="bee-project" className={`${brandSection} bg-shell`}>
       <div className={brandContainer}>
         <Reveal>
-          <SectionIntro eyebrow="Bee Project" title="学校に、ミツバチのいる学びを。">
+          <SectionIntro eyebrow="Bee Project" title="学校に、ミツバチのいる学びを">
             <p>
               学校の屋上・中庭・農場に巣箱を設置し、子どもたちとミツバチの共生を通じた
               体験型教育プログラムを提供します。設置して終わりではなく、

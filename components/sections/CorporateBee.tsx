@@ -102,7 +102,7 @@ export default function CorporateBee() {
         <Reveal>
           <SectionIntro
             eyebrow="Corporate Bee Project"
-            title="少しのスペースを、有効活用してみませんか。"
+            title="少しのスペースを、有効活用してみませんか"
           >
             <p>
               貴社の屋上や敷地の空きスペースに巣箱を設置し、設置から日常管理、採蜜、瓶詰めまでを

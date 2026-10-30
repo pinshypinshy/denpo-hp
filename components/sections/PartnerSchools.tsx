@@ -14,7 +14,7 @@ export default function PartnerSchools() {
     <section id="partner-schools" className={`${brandSection} bg-shell`}>
       <div className={brandContainer}>
         <Reveal>
-          <SectionIntro eyebrow="Partner Schools" title="学校とともに、実践を積み重ねる。">
+          <SectionIntro eyebrow="Partner Schools" title="学校とともに、実践を積み重ねる">
             <p>
               慶應義塾志木高等学校での導入を起点に、学校の現場で無理なく続く養蜂プログラムを検証しています。
             </p>

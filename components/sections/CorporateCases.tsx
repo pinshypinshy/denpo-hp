@@ -60,7 +60,7 @@ export default function CorporateCases() {
     <section id="corporate-cases" className={`${brandDarkSurface} ${brandSection}`}>
       <div className={brandContainer}>
         <Reveal>
-          <SectionIntro inverse eyebrow="Case Studies" title="企業が養蜂をする、という選択。">
+          <SectionIntro inverse eyebrow="Case Studies" title="企業が養蜂をする、という選択">
             <p>
               都市の屋上で企業がミツバチを飼う取り組みは、日本でも2006年から積み重ねられてきました。
               以下は伝蜂が関わった事例ではなく、国内で公開されている他社の取り組みです。

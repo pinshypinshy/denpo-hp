@@ -22,7 +22,7 @@ export default function Shop() {
     <section id="shop" className={`${brandSection} bg-shell`}>
       <div className={brandContainer}>
         <Reveal>
-          <SectionIntro eyebrow="Crowdfunding" title="支援のお礼に、蜂蜜を届けます。">
+          <SectionIntro eyebrow="Crowdfunding" title="支援のお礼に、蜂蜜を届けます">
             <p>
               現在、蜂蜜はCAMPFIREのクラウドファンディングを通じてお届けしています。
               ご支援いただいた方へ、リターンとして志木高で採れた純粋蜂蜜をお送りします。

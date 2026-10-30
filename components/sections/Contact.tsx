@@ -113,7 +113,7 @@ export default function Contact() {
         stagger
         className={`${brandContainer} grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start`}
       >
-        <SectionIntro eyebrow="Contact" title="学校・企業の導入、商品、取材のご相談へ。">
+        <SectionIntro eyebrow="Contact" title="学校・企業の導入、商品、取材のご相談へ">
           <p>
             学校・企業への養蜂導入のご検討、商品に関するお問い合わせ、活動への協力相談など、
             まずはフォームからご連絡ください。

@@ -28,7 +28,7 @@ export default function Vision() {
     <section id="vision" className={`${brandSection} bg-shell`}>
       <div className={brandContainer}>
         <Reveal stagger className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <SectionIntro eyebrow="Vision" title="一瓶の蜂蜜から、学びの風景を変える。">
+          <SectionIntro eyebrow="Vision" title="一瓶の蜂蜜から、学びの風景を変える">
             <p>
               伝蜂という名前には、「電報」のように大切な想いを届けたいという意味があります。
               蜂蜜をただ売るのではなく、そこにある季節、手仕事、学校での探究の記憶まで届けたい。
