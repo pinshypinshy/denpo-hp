@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+import { Noto_Sans_JP, Yuji_Syuku } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,6 +8,14 @@ import Maintenance from "@/components/Maintenance";
 const notoSans = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-noto-sans-jp",
+  display: "swap",
+});
+
+// ヒーロー文言用の毛筆書体（ロゴの筆文字に合わせる）。ウェイトは 400 のみ提供されている。
+const yujiSyuku = Yuji_Syuku({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-yuji-syuku",
   display: "swap",
 });
 
@@ -24,7 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={notoSans.variable} data-scroll-behavior="smooth">
+    <html
+      lang="ja"
+      className={`${notoSans.variable} ${yujiSyuku.variable}`}
+      data-scroll-behavior="smooth"
+    >
       {isMaintenance ? (
         <body>
           <Maintenance />

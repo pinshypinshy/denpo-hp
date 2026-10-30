@@ -30,7 +30,7 @@ export default function Hero() {
             />
           </h1>
           {/* 3行は space-y-3 でまとまった1ブロックのため、まとめて1段遅らせる。 */}
-          <div className="anim-fade-up anim-delay-1 mx-auto mt-8 max-w-2xl space-y-3 text-base leading-8 text-white text-shadow-[0_0_4px_rgba(0,0,0,0.75),0_0_12px_rgba(0,0,0,0.55)] sm:text-lg">
+          <div className="anim-fade-up anim-delay-1 mx-auto mt-8 max-w-3xl space-y-3 font-brush text-lg leading-9 text-white text-shadow-[0_0_4px_rgba(0,0,0,0.75),0_0_12px_rgba(0,0,0,0.55)] sm:text-xl">
             <p>学校に養蜂を届けること。</p>
             <p>採れた蜂蜜に想いを添えて届けること。</p>
             <p>伝蜂は、自然の循環を手で触れられる体験として社会にひらく学生団体です。</p>
