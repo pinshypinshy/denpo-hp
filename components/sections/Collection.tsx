@@ -5,9 +5,9 @@ import { brandContainer, brandSection } from "@/components/ui/designTokens";
 
 const entries = [
   {
-    eyebrow: "Shop",
-    title: "はちみつを購入する",
-    body: "キャンパスで採れた国産純粋はちみつ。贈りものとしての体験まで。",
+    eyebrow: "Crowdfunding",
+    title: "支援してはちみつを受け取る",
+    body: "キャンパスで採れた国産純粋はちみつを、クラウドファンディングのリターンとしてお届けします。",
     href: "/products",
     image: "/images/product_regular_jar.jpg",
     alt: "瓶詰めされた伝蜂のはちみつ",

@@ -5,7 +5,7 @@
 ## プロジェクト概要
 
 学生養蜂団体「伝蜂（DENPO）」の公式ホームページ。**法人化を予定している。**
-はちみつのEC販売（STORESへ誘導）、学校向け養蜂導入事業（Bee Project）、企業向け養蜂代行事業（Corporate Bee Project）の3軸で構成する。
+はちみつの販売（当面はCAMPFIREのクラウドファンディングへ誘導）、学校向け養蜂導入事業（Bee Project）、企業向け養蜂代行事業（Corporate Bee Project）の3軸で構成する。
 
 - 公開URL：https://denpobee.com （DNSはCloudflareで管理）
 - ターゲット：一般消費者（はちみつ購入）/ 学校教員（導入検討）/ 企業の担当者（CSR・サステナビリティ）
@@ -70,8 +70,7 @@ denpo-hp/
 │ ├── CorporateCases.tsx # 他社の企業養蜂事例（出典リンク付き）
 │ ├── PartnerSchools.tsx # 導入実績
 │ ├── News.tsx # 活動報告。Phase 3でNotion API動的化
-│ ├── Shop.tsx # 商品一覧・STORES誘導
-│ ├── GiftStory.tsx # ギフトコンセプト
+│ ├── Shop.tsx # CAMPFIREのクラウドファンディングへの導線
 │ ├── Faq.tsx # アコーディオン（"use client"）
 │ └── Contact.tsx
 ├── public/
@@ -96,7 +95,7 @@ denpo-hp/
 | ルート       | ページ       | セクション構成                                                    |
 | ------------ | ------------ | ----------------------------------------------------------------- |
 | `/`          | トップ       | Hero → Vision → Collection                                        |
-| `/products`  | 商品紹介     | PageHeader → Shop → GiftStory → Faq（消費者向け）                 |
+| `/products`  | 商品紹介     | PageHeader → Shop → Faq（消費者向け）                             |
 | `/projects`  | 学校養蜂     | PageHeader → BeeProject → PartnerSchools → News → Faq（学校向け） |
 | `/corporate` | 企業養蜂     | PageHeader → CorporateBee → CorporateCases → Faq（企業向け）      |
 | `/contact`   | お問い合わせ | PageHeader → Contact                                              |
@@ -165,8 +164,10 @@ Cloudflare Pages のプロジェクト設定（Variables and Secrets）に登録
    `Header.tsx` は `absolute` 配置かつ白文字で、背面に黒い領域があることを前提にしている。
    白背景のセクションが最上部に来ると、ロゴとナビが見えなくなる。
 
-4. **ECは外部リンク誘導**
-   現時点はSTORESへのリンクのみ。自前のカートは不要。URLは `Shop.tsx` の `STORES_URL` に集約する。
+4. **販売は外部リンク誘導**
+   当面はCAMPFIREのクラウドファンディング（All-in方式）のリターンとして蜂蜜を届ける。自前のカートは不要。
+   URLは `Shop.tsx` の `CAMPFIRE_URL` に集約する。募集期間・お届け時期などの数値はページに直書きしているため、
+   CAMPFIRE側の内容を変えたら `Shop.tsx` と `Faq.tsx`（`consumerFaqs`）も合わせて直す。
 
 5. **ブランド統一**
    「伝蜂（DENPO）」＝「電報」との語呂合わせ。シーリングスタンプ・手紙風メッセージカードのギフトコンセプトをデザインに反映させる。
@@ -253,9 +254,9 @@ Tailwind はソースを**テキストとして走査**するため、`bg-[${col
 
 ## 未確定・要対応
 
-- **STORES の実URL**：`Shop.tsx` の `STORES_URL` は `https://stores.jp/` の仮リンク
-- **ギフト版の価格**：「価格未定」表示のまま
-- **商品画像**：`product_regular_jar.jpg` はモックアップからの切り出しで、ラベルが「GAKKO」表記。確定版ができ次第差し替える。ギフト版の写真は未用意（プレースホルダ表示）
+- **クラファン終了後の販売導線**：CAMPFIREの募集は2027年1月17日に終了する。終了後も `/products` は終了済みの
+  プロジェクトへ誘導し続けるため、それまでに次の販売方法（STORES 等）を決めて `Shop.tsx` を差し替える
+- **商品画像**：`product_regular_jar.jpg` はモックアップからの切り出しで、ラベルが「GAKKO」表記。確定版ができ次第差し替える
 - **プライバシーポリシー**：フッターに「近日公開」と記載したまま未作成。法人化に伴い、法人名義で作成する。
   **問い合わせフォームが稼働し、氏名とメールアドレスを実際に取得しているため優先度が上がっている。**
   利用目的・保管場所（Resend と共有Gmail）・第三者提供の有無を明示する必要がある

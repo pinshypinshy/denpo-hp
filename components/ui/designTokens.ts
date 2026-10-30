@@ -30,5 +30,5 @@ export const brandPanel = "rounded-[24px] border border-line bg-white shadow-car
 export const brandPanelWarm =
   "rounded-[24px] border border-line bg-linear-to-b from-cream to-cream-deep shadow-card";
 
-/** 濃色帯（PageHeader / GiftStory / CorporateCases）の背景 */
+/** 濃色帯（PageHeader / CorporateCases）の背景 */
 export const brandDarkSurface = "bg-linear-to-b from-brown to-ink";
