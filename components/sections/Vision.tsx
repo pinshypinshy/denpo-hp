@@ -10,12 +10,12 @@ const philosophy = [
 
 const trustItems = [
   {
-    label: "保健所確認済み",
+    label: "保健所認可",
     detail: "志木・藤沢の保健所で製造許可を取得しています。",
   },
   {
     label: "食品衛生責任者",
-    detail: "飯塚・松丸の2名が資格を取得しています。",
+    detail: "資格を所持するメンバーの元製造を行っています。",
   },
   {
     label: "国産はちみつ",
