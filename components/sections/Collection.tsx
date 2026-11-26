@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Reveal from "@/components/ui/Reveal";
 import { brandContainer, brandSection } from "@/components/ui/designTokens";
 
 const entries = [
@@ -9,7 +8,7 @@ const entries = [
     title: "支援してはちみつを受け取る",
     body: "キャンパスで採れた国産純粋はちみつを、クラウドファンディングのリターンとしてお届けします。",
     href: "/products",
-    image: "/images/product_regular_jar.jpg",
+    image: "/images/denpo-honey.jpg",
     alt: "瓶詰めされた伝蜂のはちみつ",
   },
   {
@@ -40,45 +39,21 @@ const entries = [
 
 export default function Collection() {
   return (
-    <section id="collection" className={`${brandSection} bg-shell-alt`}>
-      <div className={brandContainer}>
-        <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {entries.map((entry) => (
-            <Link
-              key={entry.href}
-              href={entry.href}
-              className="group relative block aspect-[3/4] overflow-hidden rounded-[16px] border border-line shadow-card"
-            >
-              <Image
-                src={entry.image}
-                alt={entry.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.10)_0%,rgba(0,0,0,0.34)_34%,rgba(0,0,0,0.78)_62%,rgba(0,0,0,0.95)_100%)]" />
-
-              <div className="absolute inset-x-0 bottom-0 p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-honey">
-                  {entry.eyebrow}
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold leading-tight text-white">
-                  {entry.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-white/75">{entry.body}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors group-hover:text-honey">
-                  View
-                  <span
-                    aria-hidden="true"
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  >
-                    →
-                  </span>
-                </span>
-              </div>
-            </Link>
-          ))}
-        </Reveal>
+    <section id="collection" aria-label="伝蜂の取り組み" className={`${brandSection} bg-shell`}>
+      <div className={`${brandContainer} grid gap-x-12 gap-y-16 md:grid-cols-2`}>
+        {entries.map((entry) => (
+          <Link key={entry.href} href={entry.href} className="group block">
+            <div className="relative aspect-[3/2] overflow-hidden bg-cream-deep">
+              <Image src={entry.image} alt={entry.alt} fill
+                sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            </div>
+            <p className="mt-6 text-sm font-medium text-bark">{entry.eyebrow}</p>
+            <h2 className="mt-2 flex items-baseline justify-between gap-4 text-2xl font-semibold text-brown group-hover:underline sm:text-3xl">
+              {entry.title}<span aria-hidden="true" className="shrink-0 text-lg text-bark">→</span>
+            </h2>
+            <p className="mt-3 max-w-lg text-sm leading-7 text-ink-soft">{entry.body}</p>
+          </Link>
+        ))}
       </div>
     </section>
   );

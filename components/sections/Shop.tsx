@@ -33,10 +33,10 @@ export default function Shop() {
         <Reveal
           className={`${brandPanelWarm} mt-14 grid overflow-hidden text-ink lg:grid-cols-[0.95fr_1.05fr]`}
         >
-          <div className="relative min-h-[300px]">
+          <div className="relative aspect-[3/2] lg:aspect-auto">
             <Image
-              src="/images/activity_harvest_jars_01.jpg"
-              alt="採れた蜂蜜の瓶を囲んだ集合写真"
+              src="/images/denpo-honey.jpg"
+              alt="Denpoのラベルと金色の蓋をあしらった蜂蜜の瓶"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
