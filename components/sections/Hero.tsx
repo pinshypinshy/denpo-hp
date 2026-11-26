@@ -14,8 +14,10 @@ export default function Hero() {
       />
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-linear-to-t from-brown-deep/90 via-transparent to-brown-deep/55" />
       <div className={`${brandContainer} w-full px-6 pt-36 pb-12 sm:px-10 sm:pb-20`}>
-        <p className="mb-5 text-sm font-semibold text-cream">伝蜂 / DENPO</p>
-        <h1 className="text-3xl font-medium leading-[1.45] sm:text-5xl lg:text-7xl">
+        <p className="mb-4 font-serif text-2xl font-medium tracking-normal text-cream sm:text-3xl">
+          伝蜂 <span className="text-honey-soft">/</span> DENPO
+        </p>
+        <h1 className="font-serif text-[1.625rem] font-normal leading-relaxed tracking-normal text-cream-deep sm:text-4xl lg:text-[2.75rem]">
           ミツバチと学び、<br />自然とつながる。
         </h1>
       </div>
