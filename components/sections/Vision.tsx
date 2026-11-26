@@ -1,68 +1,82 @@
+import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
-import SectionIntro from "@/components/ui/SectionIntro";
-import { brandCardWarm, brandContainer, brandSection } from "@/components/ui/designTokens";
-
-const philosophy = [
-  ["Observe", "自然を観察し、変化に気づく力を育てる。"],
-  ["Harvest", "採蜜を通じて、食が生まれる現場に触れる。"],
-  ["Deliver", "蜂蜜と物語を、贈る人の気持ちと一緒に届ける。"],
-];
-
-const trustItems = [
-  {
-    label: "保健所認可",
-    detail: "志木・藤沢の保健所で製造許可を取得しています。",
-  },
-  {
-    label: "食品衛生責任者",
-    detail: "資格を所持するメンバーの元製造を行っています。",
-  },
-  {
-    label: "国産はちみつ",
-    detail: "慶應キャンパス内で採取した純粋はちみつです。",
-  },
-];
+import { brandContainer } from "@/components/ui/designTokens";
 
 export default function Vision() {
   return (
-    <section id="vision" className={`${brandSection} bg-shell`}>
-      <div className={brandContainer}>
-        <Reveal stagger className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <SectionIntro eyebrow="Vision" title="一瓶の蜂蜜から、学びの風景を変える">
-            <p>
-              伝蜂という名前には、「電報」のように大切な想いを届けたいという意味があります。
-              蜂蜜をただ売るのではなく、そこにある季節、手仕事、学校での探究の記憶まで届けたい。
-            </p>
-            <p className="mt-5">
-              ミツバチは、環境、食、地域、経済を一つの小さな巣箱の中でつなぎます。
-              私たちはその接点を、学校と日常のどちらにも開いていきます。
-            </p>
-          </SectionIntro>
+    <section id="vision" className="overflow-hidden bg-shell">
+      <div className={`${brandContainer} px-5 py-28 sm:px-8 sm:py-40`}>
+        <Reveal className="mx-auto max-w-5xl text-center">
+          <p className="mb-9 text-xs font-semibold uppercase tracking-[0.3em] text-bark">
+            OUR VISION
+          </p>
 
-          <div className="border-l border-line-strong pl-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-bark">
-              Philosophy
-            </p>
-            <dl className="mt-8 space-y-8">
-              {philosophy.map(([term, detail]) => (
-                <div key={term}>
-                  <dt className="text-xl font-semibold text-ink">{term}</dt>
-                  <dd className="mt-2 leading-7 text-ink-soft">{detail}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <h2 className="text-[clamp(2.2rem,5.5vw,5.5rem)] font-semibold leading-[1.4] tracking-[-0.055em] text-ink">
+            ミツバチと学び、
+            <br />
+            <span className="text-bark">自然とつながる。</span>
+          </h2>
+
+          <p className="mx-auto mt-10 max-w-2xl text-base leading-[2.1] text-ink-soft sm:text-lg">
+            学校に養蜂を届け、子どもたちが自然や環境を
+            身近に感じられる学びをつくります。
+          </p>
         </Reveal>
+      </div>
 
-        <Reveal stagger className="mt-16 grid gap-4 md:grid-cols-3">
-          {trustItems.map((item) => (
-            <div key={item.label} className={`${brandCardWarm} p-7 text-ink`}>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-bark">Trust</p>
-              <h3 className="mt-4 text-lg font-semibold text-ink">{item.label}</h3>
-              <p className="mt-3 text-sm leading-7 text-ink-soft">{item.detail}</p>
+      <div className="bg-cream px-5 py-24 sm:px-8 sm:py-36">
+        <div className={brandContainer}>
+          <Reveal className="mx-auto max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bark">
+              WHY WE DO THIS
+            </p>
+
+            <h3 className="mt-7 text-[clamp(1.8rem,3.7vw,3.6rem)] font-semibold leading-[1.5] tracking-[-0.045em] text-ink">
+              子どもたちの学びのそばに、
+              <br className="hidden sm:block" />
+              もう一度、自然を。
+            </h3>
+
+            <div className="mt-10 space-y-7 text-base leading-[2.2] text-ink-soft sm:text-lg">
+              <p>
+                かつて、自然は子どもたちにとって身近な学びの場でした。
+                草花に触れ、生きものを観察し、季節の移ろいを感じる。
+                そんな日常の中に、たくさんの発見と学びがありました。
+              </p>
+
+              <p>
+                しかし、身近な緑が減り、自然と触れ合う機会も
+                少なくなっている今、自然の中で学び、成長することは、
+                少しずつ当たり前ではなくなっています。
+              </p>
+
+              <p className="font-medium text-ink">
+                だからこそ、私たちは子どもたちの学びのそばに、
+                もう一度自然を届けたい。
+              </p>
+
+              <p>
+                その想いから、伝蜂は学校に養蜂を取り入れる活動をしています。
+                小さなミツバチを通して、自然の不思議や命のつながりを知る。
+                そんな体験が、新しい発見や未来の環境を考える
+                きっかけになることを願っています。
+              </p>
             </div>
-          ))}
-        </Reveal>
+
+            <Link
+              href="/projects"
+              className="group mt-12 inline-flex items-center gap-3 border-b border-bark pb-2 text-sm font-semibold text-ink transition-colors hover:text-bark"
+            >
+              学校養蜂について知る
+              <span
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
