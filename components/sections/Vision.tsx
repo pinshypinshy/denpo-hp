@@ -1,13 +1,11 @@
 import Link from "next/link";
-import SectionIntro from "@/components/ui/SectionIntro";
-import { brandContainer } from "@/components/ui/designTokens";
 
 export default function Vision() {
   return (
     <section id="vision" className="bg-cream px-6 py-20 sm:px-10 sm:py-32">
-      <div className={`${brandContainer} grid gap-8 lg:grid-cols-[2fr_3fr] lg:items-start lg:gap-16`}>
-        <SectionIntro eyebrow="Our Vision" title="子どもたちの学びのそばに、もう一度自然を。" />
-        <div className="max-w-2xl text-base leading-8 text-ink-soft">
+      <div className="mx-auto max-w-2xl">
+        <h2 className="mb-8 text-sm font-semibold text-bark">Our Vision</h2>
+        <div className="text-base leading-8 text-ink-soft">
           <div className="space-y-5">
             <p>かつて、自然は子どもたちにとって身近な学びの場でした。</p>
             <p>草花に触れ、生きものを観察し、季節の移ろいを感じる。そんな日常の中に、たくさんの発見と学びがありました。</p>
